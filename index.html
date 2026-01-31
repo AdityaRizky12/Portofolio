@@ -37,6 +37,48 @@
     .skill-progress {
       transition: width 1.5s ease-in-out;
     }
+    
+    /* History timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 30px;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #10b981;
+    }
+    .timeline-item:after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 17px;
+      width: 2px;
+      height: calc(100% + 13px);
+      background-color: #e5e7eb;
+    }
+    .timeline-item:last-child:after {
+      display: none;
+    }
+    .dark .timeline-item:after {
+      background-color: #4b5563;
+    }
+    
+    /* Download CV button animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
@@ -52,9 +94,15 @@
         <div class="hidden md:flex items-center space-x-4">
           <a href="#home" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Home</a>
           <a href="#about" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">About</a>
+          <a href="#history" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">History</a>
           <a href="#skills" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Skills</a>
           <a href="#projects" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Projects</a>
           <a href="#contact" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Contact</a>
+          <!-- Download CV Button -->
+          <a href="asset/cv/ADITYA RIZKY RAMADHAN.pdf" download class="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 flex items-center">
+            <i class="fas fa-download mr-2"></i>
+            <span>CV</span>
+          </a>
           <!-- Toggle Dark Mode -->
           <button id="theme-toggle" class="text-gray-700 dark:text-gray-200 focus:outline-none transition-colors duration-300">
             <i id="theme-icon" class="fas fa-moon"></i>
@@ -64,7 +112,12 @@
             <span id="language-text">ID</span>
           </button>
         </div>
-        <div class="md:hidden flex items-center">
+        <div class="md:hidden flex items-center space-x-4">
+          <!-- Download CV Button Mobile -->
+          <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 flex items-center text-sm">
+            <i class="fas fa-download mr-1"></i>
+            <span>CV</span>
+          </a>
           <button id="menu-btn" class="text-gray-700 dark:text-gray-200 focus:outline-none">
             <i class="fas fa-bars text-2xl"></i>
           </button>
@@ -74,6 +127,7 @@
       <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 rounded-b-lg shadow-md transition-colors duration-300">
         <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Home</a>
         <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">About</a>
+        <a href="#history" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">History</a>
         <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Skills</a>
         <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Projects</a>
         <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Contact</a>
@@ -105,12 +159,16 @@
       <p class="mt-4 text-xl md:text-2xl animate__animated animate__fadeInUp animate__delay-2s" data-i18n="home.subtitle">Fullstack Developer</p>
       
       <!-- Email dengan animasi fadeInUp dan delay lebih lama lagi -->
-      <p class="mt-2 text-lg animate__animated animate__fadeInUp animate__delay-3s">adityahaya12@gmail.com</p>
+      <p class="mt-2 text-lg animate__animated animate__fadeInUp animate__delay-3s">adityakiong09@gmail.com</p>
 
       <!-- CTA Buttons -->
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate__animated animate__fadeInUp animate__delay-3s">
         <a href="#projects" class="px-6 py-3 bg-white text-green-500 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition duration-300" data-i18n="home.viewProjects">View Projects</a>
         <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300" data-i18n="home.contactMe">Contact Me</a>
+        <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 flex items-center pulse-animation">
+          <i class="fas fa-download mr-2"></i>
+          <span data-i18n="home.downloadCV">Download CV</span>
+        </a>
       </div>
     </div>
   </section>
@@ -121,9 +179,15 @@
       <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="about.title">About Me</h2>
       <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
         <div class="w-full md:w-1/3">
-          <div class="rounded-full overflow-hidden border-4 border-green-500 shadow-lg mx-auto max-w-xs">
-            <img src="https://avatars.githubusercontent.com/u/123456789?v=4" alt="Profile" class="w-full h-auto object-cover" onerror="this.src='https://via.placeholder.com/300?text=Aditya+Rizky'">
-          </div>
+         <div class="rounded-full overflow-hidden border-4 border-green-500 shadow-lg mx-auto w-64 h-64">
+  <img 
+    src="/images/profil.png"
+    alt="Profile"
+    class="w-full h-full object-cover"
+    onerror="this.src='https://via.placeholder.com/300?text=Aditya+Rizky'"
+  >
+</div>
+
         </div>
         <div class="w-full md:w-2/3">
           <p class="text-gray-600 leading-relaxed animate__animated animate__fadeInUp dark:text-gray-300 mb-4" data-i18n="about.description">
@@ -132,12 +196,16 @@
           <p class="text-gray-600 leading-relaxed animate__animated animate__fadeInUp dark:text-gray-300" data-i18n="about.passion">
             Saya memiliki passion dalam pengembangan aplikasi web yang user-friendly, responsif, dan berkinerja tinggi. Dengan fokus pada pengalaman pengguna yang luar biasa dan kode bersih yang dapat dirawat, saya berusaha untuk membuat produk digital yang memberikan nilai tambah.
           </p>
-          <div class="mt-6 flex space-x-4">
-            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+          <div class="mt-6 flex space-x-4 flex-wrap gap-2">
+            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 flex items-center">
               <i class="fab fa-linkedin mr-2"></i> LinkedIn
             </a>
-            <a href="https://github.com/adityarizky12" target="_blank" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300">
+            <a href="https://github.com/adityarizky12" target="_blank" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300 flex items-center">
               <i class="fab fa-github mr-2"></i> GitHub
+            </a>
+            <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 flex items-center">
+              <i class="fas fa-download mr-2"></i>
+              <span data-i18n="about.downloadCV">Download CV</span>
             </a>
           </div>
         </div>
@@ -145,8 +213,87 @@
     </div>
   </section>
 
+  <!-- History Section -->
+  <section id="history" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="history.title">My History</h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Education History -->
+          <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+            <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center">
+              <i class="fas fa-graduation-cap text-green-500 mr-3"></i>
+              <span data-i18n="history.education">Education</span>
+            </h3>
+            
+            <div class="space-y-6">
+              <div class="timeline-item">
+                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.smk.title">SMKN 36 Jakarta</h4>
+                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.smk.major">Teknik Kendaraan Ringan</p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="history.smk.year">2018 - 2021</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.smk.description">
+                  Lulusan Teknik Kendaraan Ringan dengan fokus pada sistem kendaraan bermotor, mekanik dasar, dan perawatan kendaraan.
+                </p>
+              </div>
+              
+              <div class="timeline-item">
+                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.bootcamp.title">Bootcamp Fullstack Developer</h4>
+                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.bootcamp.program">Senin Fullstack Developer</p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="history.bootcamp.year">2024 - Sekarang</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.bootcamp.description">
+                  Bootcamp intensif yang berfokus pada pengembangan aplikasi web fullstack menggunakan JavaScript, React, Node.js, dan database modern.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Career Journey -->
+          <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+            <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center">
+              <i class="fas fa-briefcase text-green-500 mr-3"></i>
+              <span data-i18n="history.journey">Career Journey</span>
+            </h3>
+            
+            <div class="space-y-6">
+              <div class="timeline-item">
+                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.transition.title">Transition to Tech</h4>
+                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.transition.period">2022 - 2023</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.transition.description">
+                  Setelah lulus SMK, saya mulai belajar pemrograman secara otodidak melalui platform online seperti FreeCodeCamp, YouTube, dan dokumentasi resmi.
+                </p>
+              </div>
+              
+              <div class="timeline-item">
+                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.firstproject.title">First Web Projects</h4>
+                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.firstproject.period">2023 - 2024</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.firstproject.description">
+                  Membangun proyek-proyek web pertama menggunakan HTML, CSS, JavaScript, dan mulai mempelajari framework seperti React dan Laravel.
+                </p>
+              </div>
+              
+              <div class="timeline-item">
+                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.bootcampjourney.title">Bootcamp & Professional Growth</h4>
+                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.bootcampjourney.period">2024 - Sekarang</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.bootcampjourney.description">
+                  Mengikuti bootcamp untuk memperdalam pengetahuan fullstack development, membangun portofolio yang solid, dan mempersiapkan karir profesional di dunia teknologi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+          <p class="text-gray-600 dark:text-gray-300 italic" data-i18n="history.motivation">
+            "Latar belakang teknik kendaraan memberikan saya kemampuan problem-solving yang kuat, yang sekarang saya terapkan dalam pengembangan software untuk menciptakan solusi yang efisien dan efektif."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <section id="skills" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="skills.title">Skills</h2>
       
@@ -231,15 +378,15 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="projects.title">Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Pokemon Project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-700">
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
           <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="block">
             <div class="relative">
-              <img src="images/project.jpg" alt="Pokemon Project" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Pokemon+Project'">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjTjeNHyqBHdImqGDutRVJ02tBUSDXaZfgtg&s" alt="Pokemon Project" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Pokemon+Project'">
               <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
                 <h3 class="text-white text-lg font-bold mb-1">Pokemon Project</h3>
                 <p class="text-gray-200 text-sm">JavaScript, HTML, CSS</p>
@@ -252,14 +399,19 @@
               </p>
               <div class="flex justify-between items-center">
                 <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs dark:bg-green-800 dark:text-green-100">JavaScript</span>
-                <span class="text-green-500 font-medium text-sm" data-i18n="projects.view">Lihat Proyek</span>
+                <div class="flex space-x-2">
+                  <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/adityarizky12/Pokemon" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
               </div>
             </div>
           </a>
         </div>
         
-        <!-- Dit Movie Project (NEW) -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-700">
+        <!-- Dit Movie Project -->
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
           <a href="https://ditttmovie.netlify.app/" target="_blank" class="block">
             <div class="relative">
               <img src="images/ditmovie.jpg" alt="Dit Movie" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Dit+Movie'">
@@ -275,38 +427,134 @@
               </p>
               <div class="flex justify-between items-center">
                 <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs dark:bg-blue-800 dark:text-blue-100">React</span>
-                <span class="text-green-500 font-medium text-sm" data-i18n="projects.view">Lihat Proyek</span>
+                <div class="flex space-x-2">
+                  <a href="https://ditttmovie.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/adityarizky12/dit-movie" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
               </div>
             </div>
           </a>
         </div>
         
-        <!-- Placeholder for another project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-700">
-          <div class="relative">
-            <img src="images/coming-soon.jpg" alt="Coming Soon" class="w-full h-48 object-cover">
-            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-              <h3 class="text-white text-lg font-bold mb-1" data-i18n="projects.comingSoon.title">Coming Soon</h3>
-              <p class="text-gray-200 text-sm" data-i18n="projects.comingSoon.subtitle">New exciting project</p>
+        <!-- Age Calculator Project -->
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
+          <a href="https://github.com/AdityaRizky12/web-penghitung-umur.git" target="_blank" class="block">
+            <div class="relative">
+              <img src="https://play-lh.googleusercontent.com/my-QwEVsbjuC2ItmR_CWj1OkpkyF4lSzf4YNVZXCpnjIlUJIjNp7fe11HORCKjMhZQ" alt="Age Calculator" class="w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
+                <h3 class="text-white text-lg font-bold mb-1">Age Calculator</h3>
+                <p class="text-gray-200 text-sm">HTML, CSS, JavaScript</p>
+              </div>
             </div>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white" data-i18n="projects.comingSoon.title">Coming Soon</h3>
-            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.comingSoon.description">
-              Proyek baru yang akan datang. Tunggu pembaruan selanjutnya!
-            </p>
-            <div class="flex justify-between items-center">
-              <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs dark:bg-gray-600 dark:text-gray-200">TBA</span>
-              <span class="text-gray-400 font-medium text-sm" data-i18n="projects.comingSoon.status">Segera Hadir</span>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Age Calculator</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.agecalc.description">
+                Kalkulator umur yang menghitung usia berdasarkan tanggal lahir dengan tampilan yang menarik.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs dark:bg-yellow-800 dark:text-yellow-100">JavaScript</span>
+                <div class="flex space-x-2">
+                  <a href="https://hitung-umur.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/AdityaRizky12/web-penghitung-umur.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          </a>
+        </div>
+        
+        <!-- Simple Blog Project -->
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
+          <a href="https://github.com/AdityaRizky12/React-js.git"  target="_blank" class="block">
+            <div class="relative">
+              <img src="images/Screenshot (352).png" alt="Simple Blog" class="w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
+                <h3 class="text-white text-lg font-bold mb-1">Simple Blog</h3>
+                <p class="text-gray-200 text-sm">React JS</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Simple Blog</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.blog.description">
+                Blog sederhana dengan React yang memiliki fitur CRUD untuk postingan artikel.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs dark:bg-blue-800 dark:text-blue-100">React</span>
+                <div class="flex space-x-2">
+                  <a href="https://belajar-8j9l.vercel.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/AdityaRizky12/React-js.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Learning Video Platform -->
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
+          <a href="https://github.com/AdityaRizky12/VideoBelajar.git" target="_blank" class="block">
+            <div class="relative">
+              <img src="images/Frame 1000003752.png" alt="Learning Videos" class="w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
+                <h3 class="text-white text-lg font-bold mb-1">Learning Videos</h3>
+                <p class="text-gray-200 text-sm">React Vite, Tailwind, Daisy UI</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Learning Videos</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.videos.description">
+                Platform video pembelajaran dengan React Vite dan UI yang modern menggunakan Tailwind CSS dan Daisy UI.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs dark:bg-purple-800 dark:text-purple-100">React Vite</span>
+                <div class="flex space-x-2">
+                  <a href="https://video-belajar-eight.vercel.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/AdityaRizky12/VideoBelajar.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Todo List App -->
+        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
+          <a href="https://github.com/AdityaRizky12/Mission-4.git" target="_blank" class="block">
+            <div class="relative">
+              <img src="images/Screenshot (353).png" alt="Todo List" class="w-full h-48 object-cover">
+              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
+                <h3 class="text-white text-lg font-bold mb-1">Todo List App</h3>
+                <p class="text-gray-200 text-sm">HTML, CSS, JavaScript</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Todo List App</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.todo.description">
+                Aplikasi daftar tugas dengan fitur CRUD lengkap, filter, dan penyimpanan lokal.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs dark:bg-red-800 dark:text-red-100">JavaScript</span>
+                <div class="flex space-x-2">
+                  <a href="https://todolist-adr12.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
+                  <a href="https://github.com/AdityaRizky12/Mission-4.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="contact.title">Contact</h2>
       <div class="max-w-4xl mx-auto">
@@ -321,7 +569,7 @@
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="contact.email">Email</p>
-                  <p class="text-gray-800 dark:text-white">adityahaya12@gmail.com</p>
+                  <p class="text-gray-800 dark:text-white">adityakiong09@gmail.com</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -340,6 +588,15 @@
                 <div>
                   <p class="text-sm text-gray-500 dark:text-gray-400">Instagram</p>
                   <p class="text-gray-800 dark:text-white">@dittttt.11</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-green-500 mr-4">
+                  <i class="fab fa-github text-2xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">GitHub</p>
+                  <p class="text-gray-800 dark:text-white">adityarizky12</p>
                 </div>
               </div>
             </div>
@@ -383,6 +640,9 @@
         <div class="flex space-x-6">
           <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
             <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://github.com/adityarizky12" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
+            <i class="fab fa-github text-2xl"></i>
           </a>
           <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
             <i class="fab fa-instagram text-2xl"></i>
