@@ -3,656 +3,1108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Aditya Rizky Ramadhan</title>
+  <title>Aditya Rizky Ramadhan | Fullstack Developer</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Custom animations and styles */
+    :root {
+      --primary-blue: #1e3a8a;
+      --secondary-blue: #1e40af;
+      --accent-blue: #3b82f6;
+      --light-blue: #60a5fa;
+      --dark-blue: #0f172a;
+      --gradient-start: #0f172a;
+      --gradient-end: #1e3a8a;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background-color: var(--dark-blue);
+      color: #e2e8f0;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      color: #f8fafc;
+    }
+    
+    /* Gradient backgrounds */
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--light-blue), #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Section backgrounds */
+    .section-dark {
+      background-color: var(--dark-blue);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-blue {
+      background-color: #1e293b;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-blue::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .section-navy {
+      background-color: #0f172a;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-navy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 10% 10%, rgba(30, 58, 138, 0.1) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    
+    /* Glass morphism effect */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .glass-card-light {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+    
     /* Custom animations */
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
     }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    
     .float-animation {
-      animation: float 3s ease-in-out infinite;
+      animation: float 5s ease-in-out infinite;
     }
     
-    /* Smooth scroll behavior */
-    html {
-      scroll-behavior: smooth;
+    .shimmer-effect {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
     }
     
-    /* Custom gradient overlay for projects */
-    .project-overlay {
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    /* Hover effects */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(96, 165, 250, 0.4);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--accent-blue), var(--secondary-blue));
+      border-radius: 5px;
+    }
+    
+    /* Modern button styles */
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent-blue), var(--secondary-blue));
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary-blue), var(--accent-blue));
       opacity: 0;
       transition: opacity 0.3s ease;
+      z-index: -1;
     }
-    .project-card:hover .project-overlay {
+    
+    .btn-primary:hover::before {
       opacity: 1;
     }
     
-    /* Progress bar animation */
-    .skill-progress {
-      transition: width 1.5s ease-in-out;
+    .btn-outline {
+      border: 2px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: transparent;
     }
     
-    /* History timeline */
-    .timeline-item {
+    .btn-outline:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      color: #93c5fd;
+    }
+    
+    /* Section styling */
+    .section-padding {
+      padding: 100px 0;
+    }
+    
+    /* Skill progress bars */
+    .skill-bar {
+      height: 10px;
+      border-radius: 5px;
+      background-color: #1e293b;
+      overflow: hidden;
       position: relative;
-      padding-left: 30px;
-      margin-bottom: 30px;
-    }
-    .timeline-item:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #10b981;
-    }
-    .timeline-item:after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 17px;
-      width: 2px;
-      height: calc(100% + 13px);
-      background-color: #e5e7eb;
-    }
-    .timeline-item:last-child:after {
-      display: none;
-    }
-    .dark .timeline-item:after {
-      background-color: #4b5563;
     }
     
-    /* Download CV button animation */
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    .skill-progress {
+      height: 100%;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--accent-blue), #60a5fa);
+      position: relative;
+      overflow: hidden;
     }
-    .pulse-animation {
-      animation: pulse 2s infinite;
+    
+    .skill-progress::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 2s infinite;
+    }
+    
+    /* Project cards */
+    .project-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      height: 100%;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    
+    .project-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 24px;
+      color: white;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 2;
+    }
+    
+    .project-card:hover .project-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Navbar styling */
+    .navbar {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Grid pattern background */
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    /* Floating circles */
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+      filter: blur(40px);
+      z-index: 0;
+    }
+    
+    /* Form styling - PERBAIKAN WARNA INPUT */
+    .form-input {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border: 1px solid #cbd5e1 !important;
+      color: #1e293b !important;
+    }
+    
+    .form-input:focus {
+      background-color: white !important;
+      border-color: var(--accent-blue) !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+      outline: none !important;
+    }
+    
+    .form-input::placeholder {
+      color: #64748b !important;
+      opacity: 0.8;
+    }
+    
+    .form-label {
+      color: #1e293b !important;
+      font-weight: 500;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 70px 0;
+      }
+      
+      .mobile-center {
+        text-align: center;
+      }
+      
+      .project-image {
+        height: 200px;
+      }
+    }
+    
+    .project-image {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    /* Language switch styling */
+    .language-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 8px;
+      padding: 2px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    .language-option {
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: #93c5fd;
+    }
+    
+    .language-option.active {
+      background: linear-gradient(90deg, var(--accent-blue), var(--secondary-blue));
+      color: white;
+    }
+    
+    .language-option:hover:not(.active) {
+      background: rgba(59, 130, 246, 0.1);
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="text-gray-300">
   <!-- Navbar -->
-  <nav class="bg-white shadow-lg fixed w-full z-50 dark:bg-gray-800 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center">
-          <a href="#" class="text-xl font-semibold text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">
-            <span class="text-green-500">A</span>ditya <span class="text-green-500">R</span>izky
-          </a>
-        </div>
-        <div class="hidden md:flex items-center space-x-4">
-          <a href="#home" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Home</a>
-          <a href="#about" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">About</a>
-          <a href="#history" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">History</a>
-          <a href="#skills" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Skills</a>
-          <a href="#projects" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Projects</a>
-          <a href="#contact" class="text-gray-700 hover:text-green-500 transition duration-300 dark:text-gray-200">Contact</a>
+  <nav id="navbar" class="navbar fixed w-full z-50 py-4 transition-all duration-500">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold">
+          <span class="gradient-text">Aditya</span><span class="text-blue-300">Rizky</span>
+        </a>
+        
+        <!-- Desktop menu -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#home" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.home">Home</a>
+          <a href="#about" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.about">About</a>
+          <a href="#skills" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.skills">Skills</a>
+          <a href="#projects" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.projects">Projects</a>
+          <a href="#contact" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.contact">Contact</a>
+          
+          <!-- Language Switch -->
+          <div class="language-switch">
+            <div class="language-option active" data-lang="en">EN</div>
+            <div class="language-option" data-lang="id">ID</div>
+          </div>
+          
           <!-- Download CV Button -->
-          <a href="asset/cv/ADITYA RIZKY RAMADHAN.pdf" download class="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 flex items-center">
-            <i class="fas fa-download mr-2"></i>
-            <span>CV</span>
+          <a href="asset/cv/ADITYA RIZKY RAMADHAN.pdf" download class="btn-primary">
+            <i class="fas fa-download mr-2"></i><span data-i18n="nav.cv">Download CV</span>
           </a>
-          <!-- Toggle Dark Mode -->
-          <button id="theme-toggle" class="text-gray-700 dark:text-gray-200 focus:outline-none transition-colors duration-300">
-            <i id="theme-icon" class="fas fa-moon"></i>
-          </button>
-          <!-- Toggle Bahasa -->
-          <button id="language-toggle" class="text-gray-700 dark:text-gray-200 focus:outline-none px-2 py-1 border border-gray-300 rounded-md transition-colors duration-300">
-            <span id="language-text">ID</span>
-          </button>
         </div>
-        <div class="md:hidden flex items-center space-x-4">
-          <!-- Download CV Button Mobile -->
-          <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 flex items-center text-sm">
-            <i class="fas fa-download mr-1"></i>
-            <span>CV</span>
-          </a>
-          <button id="menu-btn" class="text-gray-700 dark:text-gray-200 focus:outline-none">
-            <i class="fas fa-bars text-2xl"></i>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 rounded-b-lg shadow-md transition-colors duration-300">
-        <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Home</a>
-        <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">About</a>
-        <a href="#history" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">History</a>
-        <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Skills</a>
-        <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Projects</a>
-        <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">Contact</a>
-        <!-- Toggle Bahasa Mobile -->
-        <button id="language-toggle-mobile" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-left transition-colors duration-300">
-          <span id="language-text-mobile">ID</span> Toggle Language
+        
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-blue-900/30 hover:bg-blue-800/40 transition-colors duration-300">
+          <i class="fas fa-bars text-blue-300"></i>
         </button>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="lg:hidden mt-4 hidden glass-card rounded-xl p-6">
+        <div class="flex flex-col space-y-4">
+          <a href="#home" class="font-medium hover:text-blue-300 transition-colors duration-300 py-2" data-i18n="nav.home">Home</a>
+          <a href="#about" class="font-medium hover:text-blue-300 transition-colors duration-300 py-2" data-i18n="nav.about">About</a>
+          <a href="#skills" class="font-medium hover:text-blue-300 transition-colors duration-300 py-2" data-i18n="nav.skills">Skills</a>
+          <a href="#projects" class="font-medium hover:text-blue-300 transition-colors duration-300 py-2" data-i18n="nav.projects">Projects</a>
+          <a href="#contact" class="font-medium hover:text-blue-300 transition-colors duration-300 py-2" data-i18n="nav.contact">Contact</a>
+          
+          <!-- Language Switch Mobile -->
+          <div class="language-switch flex justify-center my-4">
+            <div class="language-option active" data-lang="en">EN</div>
+            <div class="language-option" data-lang="id">ID</div>
+          </div>
+          
+          <div class="pt-4 border-t border-blue-900/50 flex justify-center">
+            <a href="asset/cv/ADITYA RIZKY RAMADHAN.pdf" download class="btn-primary">
+              <i class="fas fa-download mr-2"></i><span data-i18n="nav.cv">Download CV</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 relative overflow-hidden dark:from-green-600 dark:to-blue-700 transition-colors duration-300">
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-    <!-- Particles effect (just decorative divs) -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute h-3 w-3 rounded-full bg-white opacity-50 top-1/4 left-1/3 float-animation"></div>
-      <div class="absolute h-2 w-2 rounded-full bg-white opacity-40 top-1/2 left-1/4 float-animation" style="animation-delay: 0.5s"></div>
-      <div class="absolute h-4 w-4 rounded-full bg-white opacity-30 top-1/3 left-2/3 float-animation" style="animation-delay: 1s"></div>
-      <div class="absolute h-2 w-2 rounded-full bg-white opacity-60 top-2/3 left-1/5 float-animation" style="animation-delay: 1.5s"></div>
-      <div class="absolute h-3 w-3 rounded-full bg-white opacity-40 top-3/4 left-3/4 float-animation" style="animation-delay: 2s"></div>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center relative overflow-hidden gradient-bg section-padding">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="floating-circle top-1/4 left-1/4 w-96 h-96"></div>
+      <div class="floating-circle top-1/3 right-1/4 w-80 h-80" style="animation-delay: 2s"></div>
+      <div class="floating-circle bottom-1/4 left-1/2 w-72 h-72" style="animation-delay: 4s"></div>
+      
+      <!-- Grid pattern -->
+      <div class="absolute inset-0 grid-pattern"></div>
     </div>
     
-    <div class="text-center text-white z-10 px-4">
-      <!-- Judul dengan animasi fadeInDown dan delay -->
-      <h1 class="text-5xl md:text-6xl font-bold animate__animated animate__fadeInDown animate__delay-1s" data-i18n="home.title">Aditya Rizky Ramadhan</h1>
-      
-      <!-- Subjudul dengan animasi fadeInUp dan delay lebih lama -->
-      <p class="mt-4 text-xl md:text-2xl animate__animated animate__fadeInUp animate__delay-2s" data-i18n="home.subtitle">Fullstack Developer</p>
-      
-      <!-- Email dengan animasi fadeInUp dan delay lebih lama lagi -->
-      <p class="mt-2 text-lg animate__animated animate__fadeInUp animate__delay-3s">adityakiong09@gmail.com</p>
-
-      <!-- CTA Buttons -->
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate__animated animate__fadeInUp animate__delay-3s">
-        <a href="#projects" class="px-6 py-3 bg-white text-green-500 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition duration-300" data-i18n="home.viewProjects">View Projects</a>
-        <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300" data-i18n="home.contactMe">Contact Me</a>
-        <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 flex items-center pulse-animation">
-          <i class="fas fa-download mr-2"></i>
-          <span data-i18n="home.downloadCV">Download CV</span>
-        </a>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <!-- Left content -->
+        <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+          <p class="text-blue-300 font-medium mb-4 animate__animated animate__fadeInDown" data-i18n="home.greeting">Hello, I'm</p>
+          <h1 class="text-5xl lg:text-7xl font-bold mb-6 animate__animated animate__fadeInDown animate__delay-1s">
+            Aditya <span class="gradient-text">Rizky</span> <span class="text-blue-300">Ramadhan</span>
+          </h1>
+          <h2 class="text-2xl lg:text-3xl font-semibold mb-8 animate__animated animate__fadeInDown animate__delay-2s" data-i18n="home.title">
+            Fullstack <span class="gradient-text">Developer</span>
+          </h2>
+          <p class="text-blue-200/80 text-lg mb-10 max-w-xl animate__animated animate__fadeInDown animate__delay-3s" data-i18n="home.description">
+            I build modern, responsive web applications with clean code and exceptional user experiences. Passionate about turning ideas into reality through technology.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center lg:items-start space-y-4 sm:space-y-0 sm:space-x-6 animate__animated animate__fadeInUp animate__delay-4s">
+            <a href="#projects" class="btn-primary">
+              <i class="fas fa-code mr-2"></i><span data-i18n="home.viewProjects">View Projects</span>
+            </a>
+            <a href="#contact" class="btn-outline border-blue-400 text-blue-300 hover:bg-blue-900/30">
+              <i class="fas fa-envelope mr-2"></i><span data-i18n="home.contactMe">Contact Me</span>
+            </a>
+          </div>
+          
+          <!-- Social links -->
+          <div class="flex space-x-6 mt-12 justify-center lg:justify-start">
+            <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right content - Animated image/avatar -->
+        <div class="lg:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl float-animation">
+              <img 
+                src="/images/profil.png"
+                alt="Aditya Rizky Ramadhan"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'"
+              >
+            </div>
+            
+            <!-- Floating tech badges around image -->
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow">
+              <i class="fab fa-js text-2xl"></i>
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 0.5s">
+              <i class="fab fa-react text-2xl"></i>
+            </div>
+            <div class="absolute top-1/2 -right-8 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 1s">
+              <i class="fab fa-php text-2xl"></i>
+            </div>
+            <div class="absolute top-1/2 -left-8 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 1.5s">
+              <i class="fab fa-laravel text-2xl"></i>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <a href="#about" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition-colors duration-300">
+        <span class="mb-2 text-sm" data-i18n="home.scroll">Scroll Down</span>
+        <i class="fas fa-chevron-down animate-bounce"></i>
+      </a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="about.title">About Me</h2>
-      <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
-        <div class="w-full md:w-1/3">
-         <div class="rounded-full overflow-hidden border-4 border-green-500 shadow-lg mx-auto w-64 h-64">
-  <img 
-    src="/images/profil.png"
-    alt="Profile"
-    class="w-full h-full object-cover"
-    onerror="this.src='https://via.placeholder.com/300?text=Aditya+Rizky'"
-  >
-</div>
-
-        </div>
-        <div class="w-full md:w-2/3">
-          <p class="text-gray-600 leading-relaxed animate__animated animate__fadeInUp dark:text-gray-300 mb-4" data-i18n="about.description">
-            Nama saya Aditya Rizky Ramadhan. Saya adalah seorang Fullstack Developer dengan pengalaman dalam membangun aplikasi web menggunakan berbagai teknologi seperti JavaScript, PHP, Laravel, Vue, dan React. Saya selalu bersemangat untuk mempelajari hal-hal baru dan menciptakan solusi yang inovatif.
-          </p>
-          <p class="text-gray-600 leading-relaxed animate__animated animate__fadeInUp dark:text-gray-300" data-i18n="about.passion">
-            Saya memiliki passion dalam pengembangan aplikasi web yang user-friendly, responsif, dan berkinerja tinggi. Dengan fokus pada pengalaman pengguna yang luar biasa dan kode bersih yang dapat dirawat, saya berusaha untuk membuat produk digital yang memberikan nilai tambah.
-          </p>
-          <div class="mt-6 flex space-x-4 flex-wrap gap-2">
-            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 flex items-center">
-              <i class="fab fa-linkedin mr-2"></i> LinkedIn
-            </a>
-            <a href="https://github.com/adityarizky12" target="_blank" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition duration-300 flex items-center">
-              <i class="fab fa-github mr-2"></i> GitHub
-            </a>
-            <a href="assets/cv/Aditya_Rizky_CV.pdf" download class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 flex items-center">
-              <i class="fas fa-download mr-2"></i>
-              <span data-i18n="about.downloadCV">Download CV</span>
-            </a>
-          </div>
-        </div>
+  <section id="about" class="section-padding section-navy">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4" data-i18n="about.title">
+          About <span class="gradient-text">Me</span>
+        </h2>
+        <p class="text-blue-200/70 max-w-2xl mx-auto" data-i18n="about.subtitle">
+          Get to know more about my background, journey, and what drives me as a developer
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- History Section -->
-  <section id="history" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="history.title">My History</h2>
       
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Education History -->
-          <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-            <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center">
-              <i class="fas fa-graduation-cap text-green-500 mr-3"></i>
-              <span data-i18n="history.education">Education</span>
-            </h3>
-            
-            <div class="space-y-6">
-              <div class="timeline-item">
-                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.smk.title">SMKN 36 Jakarta</h4>
-                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.smk.major">Teknik Kendaraan Ringan</p>
-                <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="history.smk.year">2023 - 2025</p>
-                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.smk.description">
-                  Lulusan Teknik Kendaraan Ringan dengan fokus pada sistem kendaraan bermotor, mekanik dasar, dan perawatan kendaraan.
-                </p>
-              </div>
-              
-              <div class="timeline-item">
-                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.bootcamp.title">Bootcamp Fullstack Developer</h4>
-                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.bootcamp.program">Senin Fullstack Developer</p>
-                <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="history.bootcamp.year">2024 - Sekarang</p>
-                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.bootcamp.description">
-                  Bootcamp intensif yang berfokus pada pengembangan aplikasi web fullstack menggunakan JavaScript, React, Node.js, dan database modern.
-                </p>
-              </div>
-            </div>
-          </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left side - Text content -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6" data-i18n="about.subtitle2">
+            From Automotive to <span class="gradient-text">Code</span>
+          </h3>
+          <p class="text-blue-200/80 mb-6 leading-relaxed" data-i18n="about.description1">
+            My name is Aditya Rizky Ramadhan. I am a Fullstack Developer with experience in building web applications using various technologies such as JavaScript, PHP, Laravel, Vue, and React. My journey into tech started from an automotive background, which gave me strong problem-solving skills that I now apply to software development.
+          </p>
+          <p class="text-blue-200/80 mb-8 leading-relaxed" data-i18n="about.description2">
+            I'm passionate about creating user-friendly, responsive, and high-performance web applications. With a focus on exceptional user experience and maintainable clean code, I strive to create digital products that add real value.
+          </p>
           
-          <!-- Career Journey -->
-          <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-            <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center">
-              <i class="fas fa-briefcase text-green-500 mr-3"></i>
-              <span data-i18n="history.journey">Career Journey</span>
-            </h3>
-            
-            <div class="space-y-6">
-              <div class="timeline-item">
-                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.transition.title">Transition to Tech</h4>
-                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.transition.period">2023 - 2025</p>
-                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.transition.description">
-                  Setelah lulus SMK, saya mulai belajar pemrograman secara otodidak melalui platform online seperti FreeCodeCamp, YouTube, dan dokumentasi resmi.
-                </p>
-              </div>
-              
-              <div class="timeline-item">
-                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.firstproject.title">First Web Projects</h4>
-                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.firstproject.period">2023 - 2024</p>
-                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.firstproject.description">
-                  Membangun proyek-proyek web pertama menggunakan HTML, CSS, JavaScript, dan mulai mempelajari framework seperti React dan Laravel.
-                </p>
-              </div>
-              
-              <div class="timeline-item">
-                <h4 class="font-semibold text-gray-800 dark:text-white" data-i18n="history.bootcampjourney.title">Bootcamp & Professional Growth</h4>
-                <p class="text-green-500 font-medium text-sm mb-1" data-i18n="history.bootcampjourney.period">2025- Sekarang</p>
-                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm" data-i18n="history.bootcampjourney.description">
-                  Mengikuti bootcamp untuk memperdalam pengetahuan fullstack development, membangun portofolio yang solid, dan mempersiapkan karir profesional di dunia teknologi.
-                </p>
-              </div>
+          <div class="flex flex-wrap gap-6">
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+              <span class="font-medium text-blue-100" data-i18n="about.skill1">Fullstack Development</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
+              <span class="font-medium text-blue-100" data-i18n="about.skill2">Responsive Design</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-blue-300 rounded-full mr-3"></div>
+              <span class="font-medium text-blue-100" data-i18n="about.skill3">Problem Solving</span>
             </div>
           </div>
         </div>
         
-        <div class="mt-8 text-center">
-          <p class="text-gray-600 dark:text-gray-300 italic" data-i18n="history.motivation">
-            "Latar belakang teknik kendaraan memberikan saya kemampuan problem-solving yang kuat, yang sekarang saya terapkan dalam pengembangan software untuk menciptakan solusi yang efisien dan efektif."
-          </p>
+        <!-- Right side - Stats/timeline -->
+        <div class="glass-card rounded-2xl p-8 hover-lift">
+          <h4 class="text-xl font-bold mb-8 text-center text-blue-100" data-i18n="about.journey">My Journey</h4>
+          
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <div class="bg-blue-900/50 p-3 rounded-lg mr-4">
+                <i class="fas fa-graduation-cap text-blue-300 text-xl"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg text-blue-100" data-i18n="about.education.title">SMKN 36 Jakarta</h5>
+                <p class="text-blue-300 font-medium mb-1" data-i18n="about.education.details">Teknik Kendaraan Ringan • 2023 - 2025</p>
+                <p class="text-blue-200/70 text-sm" data-i18n="about.education.description">
+                  Graduated with focus on vehicle systems, basic mechanics, and vehicle maintenance.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-blue-800/50 p-3 rounded-lg mr-4">
+                <i class="fas fa-code text-blue-300 text-xl"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg text-blue-100" data-i18n="about.bootcamp.title">Bootcamp Fullstack Developer</h5>
+                <p class="text-blue-300 font-medium mb-1" data-i18n="about.bootcamp.details">Senin Fullstack Developer • 2024 - Present</p>
+                <p class="text-blue-200/70 text-sm" data-i18n="about.bootcamp.description">
+                  Intensive bootcamp focusing on fullstack web development using JavaScript, React, Node.js, and modern databases.
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-blue-700/50 p-3 rounded-lg mr-4">
+                <i class="fas fa-briefcase text-blue-300 text-xl"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg text-blue-100" data-i18n="about.transition.title">Transition to Tech</h5>
+                <p class="text-blue-300 font-medium mb-1" data-i18n="about.transition.details">2023 - Present</p>
+                <p class="text-blue-200/70 text-sm" data-i18n="about.transition.description">
+                  After graduating, I began learning programming through online platforms like FreeCodeCamp, YouTube, and official documentation.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="skills.title">Skills</h2>
+  <section id="skills" class="section-padding section-blue">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4" data-i18n="skills.title">
+          My <span class="gradient-text">Skills</span>
+        </h2>
+        <p class="text-blue-200/70 max-w-2xl mx-auto" data-i18n="skills.subtitle">
+          Technologies and tools I use to bring ideas to life
+        </p>
+      </div>
       
-      <!-- Skill bars for desktop -->
-      <div class="hidden md:grid grid-cols-1 gap-6 max-w-3xl mx-auto">
-        <div class="mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="font-semibold text-gray-700 dark:text-gray-300">JavaScript</span>
-            <span class="text-gray-600 dark:text-gray-400">90%</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <!-- Left column -->
+        <div class="space-y-8">
+          <!-- JavaScript -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">JavaScript</span>
+              <span class="font-bold text-blue-300">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div class="bg-green-500 h-2.5 rounded-full skill-progress" style="width: 90%"></div>
+          
+          <!-- React -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">React</span>
+              <span class="font-bold text-blue-300">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
           </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="font-semibold text-gray-700 dark:text-gray-300">PHP</span>
-            <span class="text-gray-600 dark:text-gray-400">85%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div class="bg-green-500 h-2.5 rounded-full skill-progress" style="width: 85%"></div>
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="font-semibold text-gray-700 dark:text-gray-300">Laravel</span>
-            <span class="text-gray-600 dark:text-gray-400">80%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div class="bg-green-500 h-2.5 rounded-full skill-progress" style="width: 80%"></div>
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="font-semibold text-gray-700 dark:text-gray-300">Vue</span>
-            <span class="text-gray-600 dark:text-gray-400">75%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div class="bg-green-500 h-2.5 rounded-full skill-progress" style="width: 75%"></div>
+          
+          <!-- Vue -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">Vue</span>
+              <span class="font-bold text-blue-300">75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
           </div>
         </div>
-        <div class="mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="font-semibold text-gray-700 dark:text-gray-300">React</span>
-            <span class="text-gray-600 dark:text-gray-400">85%</span>
+        
+        <!-- Right column -->
+        <div class="space-y-8">
+          <!-- PHP -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">PHP</span>
+              <span class="font-bold text-blue-300">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div class="bg-green-500 h-2.5 rounded-full skill-progress" style="width: 85%"></div>
+          
+          <!-- Laravel -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">Laravel</span>
+              <span class="font-bold text-blue-300">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <!-- Node.js -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold text-blue-100">Node.js</span>
+              <span class="font-bold text-blue-300">70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
           </div>
         </div>
       </div>
       
-      <!-- Skill cards for mobile -->
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:hidden">
-        <!-- JavaScript -->
-        <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp dark:bg-gray-800">
-          <img src="images/javascript.png" alt="JavaScript" class="w-16 h-16 mx-auto" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'">
-          <p class="mt-4 font-semibold">JavaScript</p>
-        </div>
-        <!-- PHP -->
-        <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp dark:bg-gray-800">
-          <img src="images/php.png" alt="PHP" class="w-16 h-16 mx-auto" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg'">
-          <p class="mt-4 font-semibold">PHP</p>
-        </div>
-        <!-- Laravel -->
-        <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp dark:bg-gray-800">
-          <img src="images/laravel.png" alt="Laravel" class="w-16 h-16 mx-auto" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg'">
-          <p class="mt-4 font-semibold">Laravel</p>
-        </div>
-        <!-- Vue -->
-        <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp dark:bg-gray-800">
-          <img src="images/vue.png" alt="Vue" class="w-16 h-16 mx-auto" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg'">
-          <p class="mt-4 font-semibold">Vue</p>
-        </div>
-        <!-- React -->
-        <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp dark:bg-gray-800">
-          <img src="images/react.png" alt="React" class="w-16 h-16 mx-auto" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'">
-          <p class="mt-4 font-semibold">React</p>
+      <!-- Tech icons -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-center mb-10 text-blue-100" data-i18n="skills.technologies">Technologies I Work With</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-js text-5xl text-yellow-400 mb-4"></i>
+            <span class="font-semibold text-blue-100">JavaScript</span>
+          </div>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-react text-5xl text-blue-400 mb-4"></i>
+            <span class="font-semibold text-blue-100">React</span>
+          </div>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-vuejs text-5xl text-green-400 mb-4"></i>
+            <span class="font-semibold text-blue-100">Vue.js</span>
+          </div>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-php text-5xl text-purple-400 mb-4"></i>
+            <span class="font-semibold text-blue-100">PHP</span>
+          </div>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-laravel text-5xl text-red-400 mb-4"></i>
+            <span class="font-semibold text-blue-100">Laravel</span>
+          </div>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
+            <i class="fab fa-node-js text-5xl text-green-500 mb-4"></i>
+            <span class="font-semibold text-blue-100">Node.js</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="projects.title">Projects</h2>
+  <section id="projects" class="section-padding section-navy">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4" data-i18n="projects.title">
+          My <span class="gradient-text">Projects</span>
+        </h2>
+        <p class="text-blue-200/70 max-w-2xl mx-auto" data-i18n="projects.subtitle">
+          A collection of my recent work showcasing my skills and creativity across various technologies
+        </p>
+      </div>
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Pokemon Project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="block">
-            <div class="relative">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjTjeNHyqBHdImqGDutRVJ02tBUSDXaZfgtg&s" alt="Pokemon Project" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Pokemon+Project'">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Pokemon Project</h3>
-                <p class="text-gray-200 text-sm">JavaScript, HTML, CSS</p>
+        <!-- Project 1: Pokemon Project -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjTjeNHyqBHdImqGDutRVJ02tBUSDXaZfgtg&s" 
+              alt="Pokemon Project" 
+              class="project-image"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Pokemon Project</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.pokemon.description">Interactive web application about Pokemon with API implementation.</p>
+              <div class="flex space-x-4">
+                <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/adityarizky12/Pokemon" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Pokemon Project</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.pokemon.description">
-                Aplikasi web interaktif tentang Pokemon dengan implementasi API.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs dark:bg-green-800 dark:text-green-100">JavaScript</span>
-                <div class="flex space-x-2">
-                  <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/adityarizky12/Pokemon" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+              <span class="px-3 py-1 bg-blue-800/50 text-blue-300 rounded-full text-xs">API</span>
+              <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-xs">HTML/CSS</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Pokemon Web App</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.pokemon.details">Interactive application to explore Pokemon using the PokeAPI with search and filter functionality.</p>
+          </div>
         </div>
         
-        <!-- Dit Movie Project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://ditttmovie.netlify.app/" target="_blank" class="block">
-            <div class="relative">
-              <img src="images/ditmovie.jpg" alt="Dit Movie" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Dit+Movie'">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Dit Movie</h3>
-                <p class="text-gray-200 text-sm">React, API, Tailwind CSS</p>
+        <!-- Project 2: Dit Movie -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="images/ditmovie.jpg" 
+              alt="Dit Movie" 
+              class="project-image"
+              onerror="this.src='https://images.unsplash.com/photo-1489599809516-9827b6d1cf13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Dit Movie</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.movie.description">Movie search and review application using TMDB API.</p>
+              <div class="flex space-x-4">
+                <a href="https://ditttmovie.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/adityarizky12/dit-movie" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Dit Movie</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.ditmovie.description">
-                Aplikasi web untuk pencarian dan review film menggunakan TMDB API.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs dark:bg-blue-800 dark:text-blue-100">React</span>
-                <div class="flex space-x-2">
-                  <a href="https://ditttmovie.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/adityarizky12/dit-movie" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React</span>
+              <span class="px-3 py-1 bg-blue-800/50 text-blue-300 rounded-full text-xs">TMDB API</span>
+              <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Tailwind CSS</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Movie Discovery App</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.movie.details">Feature-rich movie application with search, filtering, and detailed movie information using React and TMDB API.</p>
+          </div>
         </div>
         
-        <!-- Age Calculator Project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://github.com/AdityaRizky12/web-penghitung-umur.git" target="_blank" class="block">
-            <div class="relative">
-              <img src="https://play-lh.googleusercontent.com/my-QwEVsbjuC2ItmR_CWj1OkpkyF4lSzf4YNVZXCpnjIlUJIjNp7fe11HORCKjMhZQ" alt="Age Calculator" class="w-full h-48 object-cover">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Age Calculator</h3>
-                <p class="text-gray-200 text-sm">HTML, CSS, JavaScript</p>
+        <!-- Project 3: Age Calculator -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://play-lh.googleusercontent.com/my-QwEVsbjuC2ItmR_CWj1OkpkyF4lSzf4YNVZXCpnjIlUJIjNp7fe11HORCKjMhZQ" 
+              alt="Age Calculator" 
+              class="project-image"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.age.description">Calculate age based on birth date with attractive interface.</p>
+              <div class="flex space-x-4">
+                <a href="https://hitung-umur.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/web-penghitung-umur.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Age Calculator</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.agecalc.description">
-                Kalkulator umur yang menghitung usia berdasarkan tanggal lahir dengan tampilan yang menarik.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs dark:bg-yellow-800 dark:text-yellow-100">JavaScript</span>
-                <div class="flex space-x-2">
-                  <a href="https://hitung-umur.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/AdityaRizky12/web-penghitung-umur.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+              <span class="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-xs">HTML5</span>
+              <span class="px-3 py-1 bg-blue-700/50 text-blue-300 rounded-full text-xs">CSS3</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Age Calculator</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.age.details">Clean, user-friendly age calculator that calculates exact age in years, months, and days with a modern interface.</p>
+          </div>
         </div>
         
-        <!-- Simple Blog Project -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://github.com/AdityaRizky12/React-js.git"  target="_blank" class="block">
-            <div class="relative">
-              <img src="images/Screenshot (352).png" alt="Simple Blog" class="w-full h-48 object-cover">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Simple Blog</h3>
-                <p class="text-gray-200 text-sm">React JS</p>
+        <!-- Project 4: Simple Blog -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="images/Screenshot (352).png" 
+              alt="Simple Blog" 
+              class="project-image"
+              onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Simple Blog</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.blog.description">Simple blog with React that has CRUD features for articles.</p>
+              <div class="flex space-x-4">
+                <a href="https://belajar-8j9l.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/React-js.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Simple Blog</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.blog.description">
-                Blog sederhana dengan React yang memiliki fitur CRUD untuk postingan artikel.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs dark:bg-blue-800 dark:text-blue-100">React</span>
-                <div class="flex space-x-2">
-                  <a href="https://belajar-8j9l.vercel.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/AdityaRizky12/React-js.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React</span>
+              <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-xs">CRUD</span>
+              <span class="px-3 py-1 bg-gray-900/50 text-gray-300 rounded-full text-xs">Firebase</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Simple Blog App</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.blog.details">Blog application with full CRUD functionality, built with React for creating, reading, updating, and deleting blog posts.</p>
+          </div>
         </div>
         
-        <!-- Learning Video Platform -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://github.com/AdityaRizky12/VideoBelajar.git" target="_blank" class="block">
-            <div class="relative">
-              <img src="images/Frame 1000003752.png" alt="Learning Videos" class="w-full h-48 object-cover">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Learning Videos</h3>
-                <p class="text-gray-200 text-sm">React Vite, Tailwind, Daisy UI</p>
+        <!-- Project 5: Learning Videos -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="images/Frame 1000003752.png" 
+              alt="Learning Videos" 
+              class="project-image"
+              onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Learning Videos</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.videos.description">Learning video platform with React Vite.</p>
+              <div class="flex space-x-4">
+                <a href="https://video-belajar-eight.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/VideoBelajar.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Learning Videos</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.videos.description">
-                Platform video pembelajaran dengan React Vite dan UI yang modern menggunakan Tailwind CSS dan Daisy UI.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs dark:bg-purple-800 dark:text-purple-100">React Vite</span>
-                <div class="flex space-x-2">
-                  <a href="https://video-belajar-eight.vercel.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/AdityaRizky12/VideoBelajar.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React Vite</span>
+              <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Tailwind</span>
+              <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-xs">Daisy UI</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Learning Video Platform</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.videos.details">Educational video platform built with React Vite, featuring modern UI components from Tailwind CSS and Daisy UI.</p>
+          </div>
         </div>
         
-        <!-- Todo List App -->
-        <div class="project-card rounded-lg overflow-hidden shadow-lg group transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-800">
-          <a href="https://github.com/AdityaRizky12/Mission-4.git" target="_blank" class="block">
-            <div class="relative">
-              <img src="images/Screenshot (353).png" alt="Todo List" class="w-full h-48 object-cover">
-              <div class="project-overlay absolute inset-0 flex flex-col justify-end p-4">
-                <h3 class="text-white text-lg font-bold mb-1">Todo List App</h3>
-                <p class="text-gray-200 text-sm">HTML, CSS, JavaScript</p>
+        <!-- Project 6: Todo List App -->
+        <div class="project-card hover-lift">
+          <div class="relative overflow-hidden">
+            <img 
+              src="images/Screenshot (353).png" 
+              alt="Todo List" 
+              class="project-image"
+              onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            >
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2">Todo List App</h3>
+              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.todo.description">Task list application with complete CRUD features.</p>
+              <div class="flex space-x-4">
+                <a href="https://todolist-adr12.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/Mission-4.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
               </div>
             </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2 text-gray-800 dark:text-white">Todo List App</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="projects.todo.description">
-                Aplikasi daftar tugas dengan fitur CRUD lengkap, filter, dan penyimpanan lokal.
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs dark:bg-red-800 dark:text-red-100">JavaScript</span>
-                <div class="flex space-x-2">
-                  <a href="https://todolist-adr12.netlify.app/" target="_blank" class="text-green-500 font-medium text-sm hover:underline" data-i18n="projects.view">Live Demo</a>
-                  <a href="https://github.com/AdityaRizky12/Mission-4.git" target="_blank" class="text-gray-500 font-medium text-sm hover:underline">
-                    <i class="fab fa-github"></i> Code
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
+              <span class="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-xs">HTML5</span>
+              <span class="px-3 py-1 bg-blue-700/50 text-blue-300 rounded-full text-xs">CSS3</span>
             </div>
-          </a>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Todo List Application</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.todo.details">Feature-rich todo list application with complete CRUD functionality, filtering, and local storage support.</p>
+          </div>
         </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="https://github.com/adityarizky12" target="_blank" class="btn-outline border-blue-500 text-blue-300">
+          <i class="fab fa-github mr-2"></i><span data-i18n="projects.more">View More on GitHub</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn" data-i18n="contact.title">Contact</h2>
-      <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Contact Info -->
-          <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white" data-i18n="contact.info">Contact Info</h3>
-            <div class="space-y-4">
-              <div class="flex items-start">
-                <div class="text-green-500 mr-4">
-                  <i class="fas fa-envelope text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="contact.email">Email</p>
-                  <p class="text-gray-800 dark:text-white">adityakiong09@gmail.com</p>
-                </div>
+  <section id="contact" class="section-padding section-blue">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4" data-i18n="contact.title">
+          Get In <span class="gradient-text">Touch</span>
+        </h2>
+        <p class="text-blue-200/70 max-w-2xl mx-auto" data-i18n="contact.subtitle">
+          Feel free to reach out for collaborations, opportunities, or just to say hello!
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- Contact info -->
+        <div>
+          <h3 class="text-2xl font-bold mb-8 text-blue-100" data-i18n="contact.connect">Let's Connect</h3>
+          <p class="text-blue-200/70 mb-8" data-i18n="contact.description">
+            I'm currently open to new opportunities, collaborations, and interesting projects. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-envelope text-blue-300 text-xl"></i>
               </div>
-              <div class="flex items-start">
-                <div class="text-green-500 mr-4">
-                  <i class="fab fa-linkedin text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">LinkedIn</p>
-                  <p class="text-gray-800 dark:text-white">Aditya Rizky Ramadhan</p>
-                </div>
+              <div>
+                <p class="text-sm text-blue-300/80" data-i18n="contact.email">Email</p>
+                <p class="font-medium text-blue-100">adityakiong09@gmail.com</p>
               </div>
-              <div class="flex items-start">
-                <div class="text-green-500 mr-4">
-                  <i class="fab fa-instagram text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">Instagram</p>
-                  <p class="text-gray-800 dark:text-white">@dittttt.11</p>
-                </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-800/50 rounded-lg flex items-center justify-center mr-4">
+                <i class="fab fa-linkedin text-blue-300 text-xl"></i>
               </div>
-              <div class="flex items-start">
-                <div class="text-green-500 mr-4">
-                  <i class="fab fa-github text-2xl"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">GitHub</p>
-                  <p class="text-gray-800 dark:text-white">adityarizky12</p>
-                </div>
+              <div>
+                <p class="text-sm text-blue-300/80">LinkedIn</p>
+                <p class="font-medium text-blue-100">Aditya Rizky Ramadhan</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-700/50 rounded-lg flex items-center justify-center mr-4">
+                <i class="fab fa-github text-blue-300 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-blue-300/80">GitHub</p>
+                <p class="font-medium text-blue-100">adityarizky12</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-600/50 rounded-lg flex items-center justify-center mr-4">
+                <i class="fab fa-instagram text-blue-300 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-blue-300/80">Instagram</p>
+                <p class="font-medium text-blue-100">@dittttt.11</p>
               </div>
             </div>
           </div>
+        </div>
+        
+        <!-- Contact form - DIPERBAIKI WARNA INPUT -->
+        <div class="glass-card rounded-2xl p-8 hover-lift">
+          <h3 class="text-2xl font-bold mb-6 text-blue-100" data-i18n="contact.formTitle">Send Me a Message</h3>
           
-          <!-- Contact Form -->
-          <div class="md:col-span-2 bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
-            <form id="contact-form">
-              <div class="mb-4">
-                <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.name">Nama</label>
-                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300">
-              </div>
-              <div class="mb-4">
-                <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.email">Email</label>
-                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300">
-              </div>
-              <div class="mb-4">
-                <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.subject">Subjek</label>
-                <input type="text" id="subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300">
-              </div>
-              <div class="mb-4">
-                <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.message">Pesan</label>
-                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300"></textarea>
-              </div>
-              <button type="submit" class="w-full bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105" data-i18n="contact.submit">Kirim Pesan</button>
-            </form>
-          </div>
+          <form id="contact-form">
+            <div class="mb-6">
+              <label for="name" class="block text-blue-200 mb-2 font-medium" data-i18n="contact.name">Name</label>
+              <input type="text" id="name" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-300" data-i18n-placeholder="contact.namePlaceholder" placeholder="Your name">
+            </div>
+            
+            <div class="mb-6">
+              <label for="email" class="block text-blue-200 mb-2 font-medium" data-i18n="contact.email">Email</label>
+              <input type="email" id="email" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-300" data-i18n-placeholder="contact.emailPlaceholder" placeholder="your.email@example.com">
+            </div>
+            
+            <div class="mb-6">
+              <label for="subject" class="block text-blue-200 mb-2 font-medium" data-i18n="contact.subject">Subject</label>
+              <input type="text" id="subject" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-300" data-i18n-placeholder="contact.subjectPlaceholder" placeholder="Project inquiry">
+            </div>
+            
+            <div class="mb-8">
+              <label for="message" class="block text-blue-200 mb-2 font-medium" data-i18n="contact.message">Message</label>
+              <textarea id="message" rows="5" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-300" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Your message..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary w-full">
+              <i class="fas fa-paper-plane mr-2"></i><span data-i18n="contact.submit">Send Message</span>
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white shadow-lg dark:bg-gray-800 transition-colors duration-300">
-    <div class="container mx-auto px-4 py-8">
+  <footer class="bg-gray-900 py-12 border-t border-blue-900/50">
+    <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <p class="text-gray-600 dark:text-gray-300">© 2025 Aditya Rizky Ramadhan</p>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mt-1" data-i18n="footer.rights">All rights reserved</p>
+        <div class="mb-8 md:mb-0">
+          <a href="#" class="text-2xl font-bold">
+            <span class="gradient-text">Aditya</span><span class="text-blue-300">Rizky</span>
+          </a>
+          <p class="text-blue-300/70 mt-2" data-i18n="footer.title">Fullstack Developer</p>
         </div>
-        <div class="flex space-x-6">
-          <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
-            <i class="fab fa-linkedin text-2xl"></i>
+        
+        <div class="flex space-x-6 mb-8 md:mb-0">
+          <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+            <i class="fab fa-github"></i>
           </a>
-          <a href="https://github.com/adityarizky12" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
-            <i class="fab fa-github text-2xl"></i>
+          <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+            <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-gray-600 hover:text-green-500 transition duration-300 dark:text-gray-300">
-            <i class="fab fa-instagram text-2xl"></i>
+          <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+            <i class="fab fa-instagram"></i>
           </a>
+        </div>
+        
+        <div class="text-center md:text-right">
+          <p class="text-blue-300/70">© 2025 Aditya Rizky Ramadhan. <span data-i18n="footer.rights">All rights reserved</span>.</p>
+          <p class="text-blue-300/50 text-sm mt-1" data-i18n="footer.built">Built with <i class="fas fa-heart text-red-400 mx-1"></i> and modern web technologies</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="main.js"></script>
 </body>
 </html>
