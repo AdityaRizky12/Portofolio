@@ -59,6 +59,10 @@
         "projects.videos.details": "Educational video platform built with React Vite, featuring modern UI components from Tailwind CSS and Daisy UI.",
         "projects.todo.description": "Task list application with complete CRUD features.",
         "projects.todo.details": "Feature-rich todo list application with complete CRUD functionality, filtering, and local storage support.",
+        "projects.jobportal.description": "Modern job portal application with job listings and search functionality.",
+"projects.jobportal.details": "Modern job portal with job listings, search functionality, and filter options. Built with React Vite and Redux Toolkit for state management.",
+"projects.courses.description": "Complete course management system with MockAPI integration.",
+"projects.courses.details": "Complete CRUD application for managing courses with MockAPI integration. Features add, edit, delete courses with search functionality. Combines Redux Toolkit and useReducer for advanced state management.",
         
         // Contact
         "contact.title": "Get In Touch",
@@ -141,7 +145,11 @@
         "projects.videos.details": "Platform video edukasi dibangun dengan React Vite, menampilkan komponen UI modern dari Tailwind CSS dan Daisy UI.",
         "projects.todo.description": "Aplikasi daftar tugas dengan fitur CRUD lengkap.",
         "projects.todo.details": "Aplikasi daftar tugas lengkap dengan fungsi CRUD, filtering, dan dukungan penyimpanan lokal.",
-        
+        "projects.jobportal.description": "Aplikasi portal kerja modern dengan daftar pekerjaan dan fungsi pencarian.",
+"projects.jobportal.details": "Portal kerja modern dengan daftar pekerjaan, fungsi pencarian, dan opsi filter. Dibangun dengan React Vite dan Redux Toolkit untuk manajemen state.",
+"projects.courses.description": "Sistem manajemen kursus lengkap dengan integrasi MockAPI.",
+"projects.courses.details": "Aplikasi CRUD lengkap untuk mengelola kursus dengan integrasi MockAPI. Fitur tambah, edit, hapus kursus dengan fungsi pencarian. Menggabungkan Redux Toolkit dan useReducer untuk manajemen state tingkat lanjut.",
+
         // Contact
         "contact.title": "Hubungi Saya",
         "contact.subtitle": "Jangan ragu untuk menghubungi untuk kolaborasi, peluang, atau sekadar menyapa!",
