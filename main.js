@@ -20,7 +20,7 @@
         "about.title": "About Me",
         "about.subtitle": "Get to know more about my background, journey, and what drives me as a developer",
         "about.subtitle2": "From Automotive to Code",
-        "about.description1": "My name is Aditya Rizky Ramadhan. I am a Fullstack Developer with experience in building web applications using various technologies such as JavaScript, PHP, Laravel, Vue, and React. My journey into tech started from an automotive background, which gave me strong problem-solving skills that I now apply to software development.",
+        "about.description1": "My name is Aditya Rizky Ramadhan. I am a Fullstack Developer with experience in building web applications using various technologies such as JavaScript, PHP, Laravel, Vue, Node js,and React. My journey into tech started from an automotive background, which gave me strong problem-solving skills that I now apply to software development.",
         "about.description2": "I'm passionate about creating user-friendly, responsive, and high-performance web applications. With a focus on exceptional user experience and maintainable clean code, I strive to create digital products that add real value.",
         "about.skill1": "Fullstack Development",
         "about.skill2": "Responsive Design",
@@ -30,7 +30,7 @@
         "about.education.details": "Automotive Engineering • 2023 - 2025",
         "about.education.description": "Graduated with focus on vehicle systems, basic mechanics, and vehicle maintenance.",
         "about.bootcamp.title": "Bootcamp Fullstack Developer",
-        "about.bootcamp.details": "Senin Fullstack Developer • 2024 - Present",
+        "about.bootcamp.details": "Senin Fullstack Developer • 2025 - Present",
         "about.bootcamp.description": "Intensive bootcamp focusing on fullstack web development using JavaScript, React, Node.js, and modern databases.",
         "about.transition.title": "Transition to Tech",
         "about.transition.details": "2023 - Present",
@@ -63,6 +63,9 @@
 "projects.jobportal.details": "Modern job portal with job listings, search functionality, and filter options. Built with React Vite and Redux Toolkit for state management.",
 "projects.courses.description": "Complete course management system with MockAPI integration.",
 "projects.courses.details": "Complete CRUD application for managing courses with MockAPI integration. Features add, edit, delete courses with search functionality. Combines Redux Toolkit and useReducer for advanced state management.",
+// Tambahkan ini di dalam objek translations.en (bagian Projects)
+"projects.api.description": "Secure and scalable backend system for educational platform with JWT authentication.",
+"projects.api.details": "Developed a secure and scalable backend system for an educational platform using Node.js and Express.js. The API includes authentication with JWT, email verification, course management features, media upload handling, and structured RESTful architecture.",
         
         // Contact
         "contact.title": "Get In Touch",
@@ -106,7 +109,7 @@
         "about.title": "Tentang Saya",
         "about.subtitle": "Kenali lebih jauh tentang latar belakang, perjalanan, dan apa yang mendorong saya sebagai developer",
         "about.subtitle2": "Dari Otomotif ke Kode",
-        "about.description1": "Nama saya Aditya Rizky Ramadhan. Saya adalah Fullstack Developer dengan pengalaman dalam membangun aplikasi web menggunakan berbagai teknologi seperti JavaScript, PHP, Laravel, Vue, dan React. Perjalanan saya ke dunia teknologi dimulai dari latar belakang otomotif, yang memberi saya kemampuan pemecahan masalah yang kuat yang sekarang saya terapkan dalam pengembangan perangkat lunak.",
+        "about.description1": "Nama saya Aditya Rizky Ramadhan. Saya adalah Fullstack Developer dengan pengalaman dalam membangun aplikasi web menggunakan berbagai teknologi seperti JavaScript, PHP, Laravel, Vue, Node js, dan React. Perjalanan saya ke dunia teknologi dimulai dari latar belakang otomotif, yang memberi saya kemampuan pemecahan masalah yang kuat yang sekarang saya terapkan dalam pengembangan perangkat lunak.",
         "about.description2": "Saya memiliki passion dalam membuat aplikasi web yang ramah pengguna, responsif, dan berkinerja tinggi. Dengan fokus pada pengalaman pengguna yang luar biasa dan kode bersih yang dapat dirawat, saya berusaha menciptakan produk digital yang memberikan nilai tambah.",
         "about.skill1": "Pengembangan Fullstack",
         "about.skill2": "Desain Responsif",
@@ -116,7 +119,7 @@
         "about.education.details": "Teknik Kendaraan Ringan • 2023 - 2025",
         "about.education.description": "Lulus dengan fokus pada sistem kendaraan, mekanik dasar, dan perawatan kendaraan.",
         "about.bootcamp.title": "Bootcamp Fullstack Developer",
-        "about.bootcamp.details": "Senin Fullstack Developer • 2024 - Sekarang",
+        "about.bootcamp.details": "Senin Fullstack Developer • 2025 - Sekarang",
         "about.bootcamp.description": "Bootcamp intensif yang berfokus pada pengembangan web fullstack menggunakan JavaScript, React, Node.js, dan database modern.",
         "about.transition.title": "Transisi ke Teknologi",
         "about.transition.details": "2023 - Sekarang",
@@ -149,6 +152,9 @@
 "projects.jobportal.details": "Portal kerja modern dengan daftar pekerjaan, fungsi pencarian, dan opsi filter. Dibangun dengan React Vite dan Redux Toolkit untuk manajemen state.",
 "projects.courses.description": "Sistem manajemen kursus lengkap dengan integrasi MockAPI.",
 "projects.courses.details": "Aplikasi CRUD lengkap untuk mengelola kursus dengan integrasi MockAPI. Fitur tambah, edit, hapus kursus dengan fungsi pencarian. Menggabungkan Redux Toolkit dan useReducer untuk manajemen state tingkat lanjut.",
+// Tambahkan ini di dalam objek translations.id (bagian Projects)
+"projects.api.description": "Sistem backend yang aman dan skalabel untuk platform pendidikan dengan autentikasi JWT.",
+"projects.api.details": "Mengembangkan sistem backend yang aman dan skalabel untuk platform pendidikan menggunakan Node.js dan Express.js. API ini mencakup autentikasi dengan JWT, verifikasi email, fitur manajemen kursus, penanganan unggahan media, dan arsitektur RESTful yang terstruktur.",
 
         // Contact
         "contact.title": "Hubungi Saya",
