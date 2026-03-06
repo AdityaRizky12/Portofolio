@@ -4,419 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Rizky Ramadhan | Fullstack Developer</title>
+  
+  <!-- CSS Libraries -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Custom animations and styles */
-    :root {
-      --primary-blue: #1e3a8a;
-      --secondary-blue: #1e40af;
-      --accent-blue: #3b82f6;
-      --light-blue: #60a5fa;
-      --dark-blue: #0f172a;
-      --gradient-start: #0f172a;
-      --gradient-end: #1e3a8a;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      background-color: var(--dark-blue);
-      color: #e2e8f0;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
-      color: #f8fafc;
-    }
-    
-    /* Gradient backgrounds */
-    .gradient-bg {
-      background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(90deg, var(--light-blue), #93c5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    /* Section backgrounds */
-    .section-dark {
-      background-color: var(--dark-blue);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .section-blue {
-      background-color: #1e293b;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .section-blue::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    
-    .section-navy {
-      background-color: #0f172a;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .section-navy::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 10% 10%, rgba(30, 58, 138, 0.1) 0%, transparent 40%),
-                  radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
-      pointer-events: none;
-    }
-    
-    /* Glass morphism effect */
-    .glass-card {
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-    
-    .glass-card-light {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(96, 165, 250, 0.2);
-    }
-    
-    /* Custom animations */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-    }
-    
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-    
-    .float-animation {
-      animation: float 5s ease-in-out infinite;
-    }
-    
-    .shimmer-effect {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      background-size: 200% 100%;
-      animation: shimmer 2s infinite;
-    }
-    
-    .pulse-glow {
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-    
-    /* Hover effects */
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border-color: rgba(96, 165, 250, 0.4);
-    }
-    
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: #0f172a;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(to bottom, var(--accent-blue), var(--secondary-blue));
-      border-radius: 5px;
-    }
-    
-    /* Modern button styles */
-    .btn-primary {
-      background: linear-gradient(90deg, var(--accent-blue), var(--secondary-blue));
-      color: white;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--secondary-blue), var(--accent-blue));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-    
-    .btn-primary:hover::before {
-      opacity: 1;
-    }
-    
-    .btn-outline {
-      border: 2px solid var(--accent-blue);
-      color: var(--accent-blue);
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      background: transparent;
-    }
-    
-    .btn-outline:hover {
-      background-color: rgba(59, 130, 246, 0.1);
-      color: #93c5fd;
-    }
-    
-    /* Section styling */
-    .section-padding {
-      padding: 100px 0;
-    }
-    
-    /* Skill progress bars */
-    .skill-bar {
-      height: 10px;
-      border-radius: 5px;
-      background-color: #1e293b;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .skill-progress {
-      height: 100%;
-      border-radius: 5px;
-      background: linear-gradient(90deg, var(--accent-blue), #60a5fa);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .skill-progress::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.2) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      animation: shimmer 2s infinite;
-    }
-    
-    /* Project cards */
-    .project-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      height: 100%;
-    }
-    
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 1;
-    }
-    
-    .project-card:hover::before {
-      opacity: 1;
-    }
-    
-    .project-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 24px;
-      color: white;
-      transform: translateY(20px);
-      opacity: 0;
-      transition: all 0.4s ease;
-      z-index: 2;
-    }
-    
-    .project-card:hover .project-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    
-    /* Navbar styling */
-    .navbar {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: rgba(15, 23, 42, 0.8);
-      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-    }
-    
-    .navbar.scrolled {
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Grid pattern background */
-    .grid-pattern {
-      background-image: 
-        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    
-    /* Floating circles */
-    .floating-circle {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
-      filter: blur(40px);
-      z-index: 0;
-    }
-    
-    /* Form styling - PERBAIKAN WARNA INPUT */
-    .form-input {
-      background-color: rgba(255, 255, 255, 0.95) !important;
-      border: 1px solid #cbd5e1 !important;
-      color: #1e293b !important;
-    }
-    
-    .form-input:focus {
-      background-color: white !important;
-      border-color: var(--accent-blue) !important;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
-      outline: none !important;
-    }
-    
-    .form-input::placeholder {
-      color: #64748b !important;
-      opacity: 0.8;
-    }
-    
-    .form-label {
-      color: #1e293b !important;
-      font-weight: 500;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .section-padding {
-        padding: 70px 0;
-      }
-      
-      .mobile-center {
-        text-align: center;
-      }
-      
-      .project-image {
-        height: 200px;
-      }
-    }
-    
-    .project-image {
-      height: 220px;
-      width: 100%;
-      object-fit: cover;
-    }
-    
-    /* Language switch styling */
-    .language-switch {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      background: rgba(30, 41, 59, 0.8);
-      border-radius: 8px;
-      padding: 2px;
-      border: 1px solid rgba(59, 130, 246, 0.3);
-    }
-    
-    .language-option {
-      padding: 6px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      color: #93c5fd;
-    }
-    
-    .language-option.active {
-      background: linear-gradient(90deg, var(--accent-blue), var(--secondary-blue));
-      color: white;
-    }
-    
-    .language-option:hover:not(.active) {
-      background: rgba(59, 130, 246, 0.1);
-    }
-  </style>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-gray-300">
+<body>
+  <!-- Loading Screen -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Three.js Canvas Container -->
+  <div id="canvas-container"></div>
+
   <!-- Navbar -->
   <nav id="navbar" class="navbar fixed w-full z-50 py-4 transition-all duration-500">
     <div class="container mx-auto px-6">
       <div class="flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold">
-          <span class="gradient-text">Aditya</span><span class="text-blue-300">Rizky</span>
+        <a href="#" class="text-2xl font-bold group">
+          <span class="gradient-text group-hover:animate-pulse">Aditya</span><span class="text-blue-300">Rizky</span>
         </a>
         
         <!-- Desktop menu -->
         <div class="hidden lg:flex items-center space-x-8">
-          <a href="#home" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.home">Home</a>
-          <a href="#about" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.about">About</a>
-          <a href="#skills" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.skills">Skills</a>
-          <a href="#projects" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.projects">Projects</a>
-          <a href="#contact" class="font-medium hover:text-blue-300 transition-colors duration-300" data-i18n="nav.contact">Contact</a>
+          <a href="#home" class="font-medium hover:text-blue-300 transition-colors duration-300 relative group" data-i18n="nav.home">
+            Home
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="font-medium hover:text-blue-300 transition-colors duration-300 relative group" data-i18n="nav.about">
+            About
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#skills" class="font-medium hover:text-blue-300 transition-colors duration-300 relative group" data-i18n="nav.skills">
+            Skills
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#projects" class="font-medium hover:text-blue-300 transition-colors duration-300 relative group" data-i18n="nav.projects">
+            Projects
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="font-medium hover:text-blue-300 transition-colors duration-300 relative group" data-i18n="nav.contact">
+            Contact
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </a>
           
           <!-- Language Switch -->
           <div class="language-switch">
@@ -425,14 +63,14 @@
           </div>
           
           <!-- Download CV Button -->
-          <a href="asset/cv/ADITYA RIZKY RAMADHAN.pdf" download class="btn-primary">
+          <a href="asset/cv/CV ADITYA RIZKY RAMADHAN.pdf" download class="btn-primary">
             <i class="fas fa-download mr-2"></i><span data-i18n="nav.cv">Download CV</span>
           </a>
         </div>
         
         <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-blue-900/30 hover:bg-blue-800/40 transition-colors duration-300">
-          <i class="fas fa-bars text-blue-300"></i>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-blue-900/30 hover:bg-blue-800/40 transition-all duration-300">
+          <i class="fas fa-bars text-blue-300 text-xl"></i>
         </button>
       </div>
       
@@ -462,23 +100,13 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center relative overflow-hidden gradient-bg section-padding">
-    <!-- Animated background elements -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="floating-circle top-1/4 left-1/4 w-96 h-96"></div>
-      <div class="floating-circle top-1/3 right-1/4 w-80 h-80" style="animation-delay: 2s"></div>
-      <div class="floating-circle bottom-1/4 left-1/2 w-72 h-72" style="animation-delay: 4s"></div>
-      
-      <!-- Grid pattern -->
-      <div class="absolute inset-0 grid-pattern"></div>
-    </div>
-    
+  <section id="home" class="min-h-screen flex items-center relative overflow-hidden section-padding">
     <div class="container mx-auto px-6 relative z-10">
       <div class="flex flex-col lg:flex-row items-center justify-between">
         <!-- Left content -->
         <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
           <p class="text-blue-300 font-medium mb-4 animate__animated animate__fadeInDown" data-i18n="home.greeting">Hello, I'm</p>
-          <h1 class="text-5xl lg:text-7xl font-bold mb-6 animate__animated animate__fadeInDown animate__delay-1s">
+          <h1 class="text-5xl lg:text-7xl font-bold mb-6 animate__animated animate__fadeInDown animate__delay-1s text-3d">
             Aditya <span class="gradient-text">Rizky</span> <span class="text-blue-300">Ramadhan</span>
           </h1>
           <h2 class="text-2xl lg:text-3xl font-semibold mb-8 animate__animated animate__fadeInDown animate__delay-2s" data-i18n="home.title">
@@ -499,13 +127,13 @@
           
           <!-- Social links -->
           <div class="flex space-x-6 mt-12 justify-center lg:justify-start">
-            <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+            <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300 hover:text-blue-200 transition-all duration-300 text-2xl hover:scale-110">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300 hover:text-blue-200 transition-all duration-300 text-2xl hover:scale-110">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300 text-2xl">
+            <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300 hover:text-blue-200 transition-all duration-300 text-2xl hover:scale-110">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -513,27 +141,26 @@
         
         <!-- Right content - Animated image/avatar -->
         <div class="lg:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl float-animation">
+          <div class="relative group">
+            <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl float-animation group-hover:border-blue-400/50 transition-all duration-500">
               <img 
                 src="/images/profil.png"
                 alt="Aditya Rizky Ramadhan"
-                class="w-full h-full object-cover"
-                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               >
             </div>
             
-            <!-- Floating tech badges around image -->
-            <div class="absolute -top-4 -left-4 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow">
+            <!-- Floating tech badges with 3D effect -->
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-blue-400/50 animate-bounce" style="animation-delay: 0s">
               <i class="fab fa-js text-2xl"></i>
             </div>
-            <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 0.5s">
+            <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-blue-400/50 animate-bounce" style="animation-delay: 0.5s">
               <i class="fab fa-react text-2xl"></i>
             </div>
-            <div class="absolute top-1/2 -right-8 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 1s">
+            <div class="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-blue-400/50 animate-bounce" style="animation-delay: 1s">
               <i class="fab fa-php text-2xl"></i>
             </div>
-            <div class="absolute top-1/2 -left-8 w-16 h-16 bg-blue-900/80 rounded-full flex items-center justify-center text-blue-300 shadow-xl border border-blue-500/30 pulse-glow" style="animation-delay: 1.5s">
+            <div class="absolute top-1/2 -left-8 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-blue-400/50 animate-bounce" style="animation-delay: 1.5s">
               <i class="fab fa-laravel text-2xl"></i>
             </div>
           </div>
@@ -542,16 +169,16 @@
     </div>
     
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
       <a href="#about" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition-colors duration-300">
         <span class="mb-2 text-sm" data-i18n="home.scroll">Scroll Down</span>
-        <i class="fas fa-chevron-down animate-bounce"></i>
+        <i class="fas fa-chevron-down"></i>
       </a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section-padding section-navy">
+  <section id="about" class="min-h-screen flex items-center section-padding section-navy">
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold mb-4" data-i18n="about.title">
@@ -564,28 +191,28 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Left side - Text content -->
-        <div>
+        <div class="space-y-6">
           <h3 class="text-2xl font-bold mb-6" data-i18n="about.subtitle2">
             From Automotive to <span class="gradient-text">Code</span>
           </h3>
-          <p class="text-blue-200/80 mb-6 leading-relaxed" data-i18n="about.description1">
+          <p class="text-blue-200/80 leading-relaxed" data-i18n="about.description1">
             My name is Aditya Rizky Ramadhan. I am a Fullstack Developer with experience in building web applications using various technologies such as JavaScript, PHP, Laravel, Vue, Node js, and React. My journey into tech started from an automotive background, which gave me strong problem-solving skills that I now apply to software development.
           </p>
-          <p class="text-blue-200/80 mb-8 leading-relaxed" data-i18n="about.description2">
+          <p class="text-blue-200/80 leading-relaxed" data-i18n="about.description2">
             I'm passionate about creating user-friendly, responsive, and high-performance web applications. With a focus on exceptional user experience and maintainable clean code, I strive to create digital products that add real value.
           </p>
           
           <div class="flex flex-wrap gap-6">
             <div class="flex items-center">
-              <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+              <div class="w-3 h-3 bg-blue-500 rounded-full mr-3 animate-pulse"></div>
               <span class="font-medium text-blue-100" data-i18n="about.skill1">Fullstack Development</span>
             </div>
             <div class="flex items-center">
-              <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
+              <div class="w-3 h-3 bg-blue-400 rounded-full mr-3 animate-pulse" style="animation-delay: 0.2s"></div>
               <span class="font-medium text-blue-100" data-i18n="about.skill2">Responsive Design</span>
             </div>
             <div class="flex items-center">
-              <div class="w-3 h-3 bg-blue-300 rounded-full mr-3"></div>
+              <div class="w-3 h-3 bg-blue-300 rounded-full mr-3 animate-pulse" style="animation-delay: 0.4s"></div>
               <span class="font-medium text-blue-100" data-i18n="about.skill3">Problem Solving</span>
             </div>
           </div>
@@ -596,9 +223,9 @@
           <h4 class="text-xl font-bold mb-8 text-center text-blue-100" data-i18n="about.journey">My Journey</h4>
           
           <div class="space-y-8">
-            <div class="flex items-start">
-              <div class="bg-blue-900/50 p-3 rounded-lg mr-4">
-                <i class="fas fa-graduation-cap text-blue-300 text-xl"></i>
+            <div class="flex items-start group">
+              <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-graduation-cap text-white text-xl"></i>
               </div>
               <div>
                 <h5 class="font-bold text-lg text-blue-100" data-i18n="about.education.title">SMKN 36 Jakarta</h5>
@@ -609,9 +236,9 @@
               </div>
             </div>
             
-            <div class="flex items-start">
-              <div class="bg-blue-800/50 p-3 rounded-lg mr-4">
-                <i class="fas fa-code text-blue-300 text-xl"></i>
+            <div class="flex items-start group">
+              <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-code text-white text-xl"></i>
               </div>
               <div>
                 <h5 class="font-bold text-lg text-blue-100" data-i18n="about.bootcamp.title">Bootcamp Fullstack Developer</h5>
@@ -622,9 +249,9 @@
               </div>
             </div>
             
-            <div class="flex items-start">
-              <div class="bg-blue-700/50 p-3 rounded-lg mr-4">
-                <i class="fas fa-briefcase text-blue-300 text-xl"></i>
+            <div class="flex items-start group">
+              <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-briefcase text-white text-xl"></i>
               </div>
               <div>
                 <h5 class="font-bold text-lg text-blue-100" data-i18n="about.transition.title">Transition to Tech</h5>
@@ -641,7 +268,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section-padding section-blue">
+  <section id="skills" class="min-h-screen flex items-center section-padding section-blue">
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold mb-4" data-i18n="skills.title">
@@ -730,28 +357,28 @@
       <div class="mt-16">
         <h3 class="text-2xl font-bold text-center mb-10 text-blue-100" data-i18n="skills.technologies">Technologies I Work With</h3>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-js text-5xl text-yellow-400 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-js text-5xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">JavaScript</span>
           </div>
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-react text-5xl text-blue-400 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-react text-5xl text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">React</span>
           </div>
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-vuejs text-5xl text-green-400 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-vuejs text-5xl text-green-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">Vue.js</span>
           </div>
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-php text-5xl text-purple-400 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-php text-5xl text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">PHP</span>
           </div>
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-laravel text-5xl text-red-400 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-laravel text-5xl text-red-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">Laravel</span>
           </div>
-          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift">
-            <i class="fab fa-node-js text-5xl text-green-500 mb-4"></i>
+          <div class="flex flex-col items-center p-6 glass-card-light rounded-2xl hover-lift group">
+            <i class="fab fa-node-js text-5xl text-green-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
             <span class="font-semibold text-blue-100">Node.js</span>
           </div>
         </div>
@@ -760,7 +387,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="section-padding section-navy">
+  <section id="projects" class="min-h-screen section-padding section-navy">
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold mb-4" data-i18n="projects.title">
@@ -773,17 +400,18 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Project 1: Pokemon Project -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjTjeNHyqBHdImqGDutRVJ02tBUSDXaZfgtg&s" 
               alt="Pokemon Project" 
-              class="project-image"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Pokemon Project</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.pokemon.description">Interactive web application about Pokemon with API implementation.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Pokemon Project</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.pokemon.description">Interactive web application about Pokemon with API implementation.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://adityarizky12.github.io/Pokemon/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -795,9 +423,9 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
-              <span class="px-3 py-1 bg-blue-800/50 text-blue-300 rounded-full text-xs">API</span>
-              <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-xs">HTML/CSS</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">JavaScript</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">API</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-yellow-900 to-yellow-800 text-yellow-300 rounded-full text-xs border border-yellow-500/30">HTML/CSS</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Pokemon Web App</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.pokemon.details">Interactive application to explore Pokemon using the PokeAPI with search and filter functionality.</p>
@@ -805,18 +433,18 @@
         </div>
         
         <!-- Project 2: Dit Movie -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
-              src="images/ditmovie.jpg" 
+              src="/images/ditmovie.jpg" 
               alt="Dit Movie" 
-              class="project-image"
-              onerror="this.src='https://images.unsplash.com/photo-1489599809516-9827b6d1cf13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Dit Movie</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.movie.description">Movie search and review application using TMDB API.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Dit Movie</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.movie.description">Movie search and review application using TMDB API.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://ditttmovie.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -828,9 +456,9 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React</span>
-              <span class="px-3 py-1 bg-blue-800/50 text-blue-300 rounded-full text-xs">TMDB API</span>
-              <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Tailwind CSS</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">React</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">TMDB API</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">Tailwind CSS</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Movie Discovery App</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.movie.details">Feature-rich movie application with search, filtering, and detailed movie information using React and TMDB API.</p>
@@ -838,17 +466,18 @@
         </div>
         
         <!-- Project 3: Age Calculator -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
               src="https://play-lh.googleusercontent.com/my-QwEVsbjuC2ItmR_CWj1OkpkyF4lSzf4YNVZXCpnjIlUJIjNp7fe11HORCKjMhZQ" 
               alt="Age Calculator" 
-              class="project-image"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.age.description">Calculate age based on birth date with attractive interface.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Age Calculator</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.age.description">Calculate age based on birth date with attractive interface.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://hitung-umur.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -860,9 +489,9 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
-              <span class="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-xs">HTML5</span>
-              <span class="px-3 py-1 bg-blue-700/50 text-blue-300 rounded-full text-xs">CSS3</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">JavaScript</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-red-900 to-red-800 text-red-300 rounded-full text-xs border border-red-500/30">HTML5</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">CSS3</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Age Calculator</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.age.details">Clean, user-friendly age calculator that calculates exact age in years, months, and days with a modern interface.</p>
@@ -870,18 +499,18 @@
         </div>
         
         <!-- Project 4: Simple Blog -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
-              src="images/Screenshot (352).png" 
+              src="/images/Screenshot (352).png" 
               alt="Simple Blog" 
-              class="project-image"
-              onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Simple Blog</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.blog.description">Simple blog with React that has CRUD features for articles.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Simple Blog</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.blog.description">Simple blog with React that has CRUD features for articles.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://belajar-8j9l.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -893,9 +522,9 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React</span>
-              <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-xs">CRUD</span>
-              <span class="px-3 py-1 bg-gray-900/50 text-gray-300 rounded-full text-xs">Firebase</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">React</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-green-900 to-green-800 text-green-300 rounded-full text-xs border border-green-500/30">CRUD</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-gray-900 to-gray-800 text-gray-300 rounded-full text-xs border border-gray-500/30">Firebase</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Simple Blog App</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.blog.details">Blog application with full CRUD functionality, built with React for creating, reading, updating, and deleting blog posts.</p>
@@ -903,18 +532,18 @@
         </div>
         
         <!-- Project 5: Learning Videos -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
-              src="images/Frame 1000003752.png" 
+              src="/images/Frame 1000003752.png" 
               alt="Learning Videos" 
-              class="project-image"
-              onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Learning Videos</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.videos.description">Learning video platform with React Vite.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Learning Videos</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.videos.description">Learning video platform with React Vite.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://video-belajar-eight.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -926,9 +555,9 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React Vite</span>
-              <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Tailwind</span>
-              <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-xs">Daisy UI</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">React Vite</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">Tailwind</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-900 to-pink-800 text-pink-300 rounded-full text-xs border border-pink-500/30">Daisy UI</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Learning Video Platform</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.videos.details">Educational video platform built with React Vite, featuring modern UI components from Tailwind CSS and Daisy UI.</p>
@@ -936,18 +565,18 @@
         </div>
         
         <!-- Project 6: Todo List App -->
-        <div class="project-card hover-lift">
+        <div class="project-card group">
           <div class="relative overflow-hidden">
             <img 
-              src="images/Screenshot (353).png" 
+              src="/images/Screenshot (353).png" 
               alt="Todo List" 
-              class="project-image"
-              onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+              class="project-image group-hover:scale-110 transition-transform duration-700"
             >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="project-content">
-              <h3 class="text-xl font-bold mb-2">Todo List App</h3>
-              <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.todo.description">Task list application with complete CRUD features.</p>
-              <div class="flex space-x-4">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Todo List App</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.todo.description">Task list application with complete CRUD features.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                 <a href="https://todolist-adr12.netlify.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
                   <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
                 </a>
@@ -959,130 +588,128 @@
           </div>
           <div class="p-6">
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">JavaScript</span>
-              <span class="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-xs">HTML5</span>
-              <span class="px-3 py-1 bg-blue-700/50 text-blue-300 rounded-full text-xs">CSS3</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">JavaScript</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-red-900 to-red-800 text-red-300 rounded-full text-xs border border-red-500/30">HTML5</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">CSS3</span>
             </div>
             <h3 class="text-xl font-bold mb-2 text-blue-100">Todo List Application</h3>
             <p class="text-blue-200/70 text-sm" data-i18n="projects.todo.details">Feature-rich todo list application with complete CRUD functionality, filtering, and local storage support.</p>
           </div>
         </div>
 
-         <!-- Project 7: Job Portal (Vite React + Tailwind CSS) -->
-<div class="project-card hover-lift">
-  <div class="relative overflow-hidden">
-    <img 
-      src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-      alt="Job Portal" 
-      class="project-image"
-    >
-    <div class="project-content">
-      <h3 class="text-xl font-bold mb-2">Job Portal</h3>
-      <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.jobportal.description">Modern job portal application with job listings and search functionality.</p>
-      <div class="flex space-x-4">
-        <a href="https://job-portal-rouge-six.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
-        </a>
-        <a href="https://github.com/AdityaRizky12/Job_Portal" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2 mb-4">
-      <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React Vite</span>
-      <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Redux Toolkit</span>
-      <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-xs">Tailwind CSS</span>
-    </div>
-    <h3 class="text-xl font-bold mb-2 text-blue-100">Job Portal Application</h3>
-    <p class="text-blue-200/70 text-sm" data-i18n="projects.jobportal.details">Modern job portal with job listings, search functionality, and filter options. Built with React Vite and Redux Toolkit for state management.</p>
-  </div>
-</div>
+        <!-- Project 7: Job Portal -->
+        <div class="project-card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Job Portal" 
+              class="project-image group-hover:scale-110 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Job Portal</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.jobportal.description">Modern job portal application with job listings and search functionality.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                <a href="https://job-portal-rouge-six.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/Job_Portal" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">React Vite</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">Redux Toolkit</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-yellow-900 to-yellow-800 text-yellow-300 rounded-full text-xs border border-yellow-500/30">Tailwind CSS</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Job Portal Application</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.jobportal.details">Modern job portal with job listings, search functionality, and filter options. Built with React Vite and Redux Toolkit for state management.</p>
+          </div>
+        </div>
 
-<!-- Project 8: CRUD Courses (Vite React + Redux Toolkit + useReducer + MockAPI) -->
-<div class="project-card hover-lift">
-  <div class="relative overflow-hidden">
-    <img 
-      src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-      alt="CRUD Courses" 
-      class="project-image"
-    >
-    <div class="project-content">
-      <h3 class="text-xl font-bold mb-2">CRUD Courses</h3>
-      <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.courses.description">Complete course management system with MockAPI integration.</p>
-      <div class="flex space-x-4">
-        <a href="https://tugas-adeven-fe.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
-        </a>
-        <a href="https://github.com/AdityaRizky12/Tugas_Adeven_FE" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2 mb-4">
-      <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">React Vite</span>
-      <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">Redux Toolkit</span>
-      <span class="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-xs">useReducer</span>
-      <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-xs">MockAPI</span>
-    </div>
-    <h3 class="text-xl font-bold mb-2 text-blue-100">Course Management System</h3>
-    <p class="text-blue-200/70 text-sm" data-i18n="projects.courses.details">Complete CRUD application for managing courses with MockAPI integration. Features add, edit, delete courses with search functionality. Combines Redux Toolkit and useReducer for advanced state management.</p>
-  </div>
-</div>
+        <!-- Project 8: CRUD Courses -->
+        <div class="project-card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="CRUD Courses" 
+              class="project-image group-hover:scale-110 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">CRUD Courses</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.courses.description">Complete course management system with MockAPI integration.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                <a href="https://tugas-adeven-fe.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/Tugas_Adeven_FE" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">React Vite</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">Redux Toolkit</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-orange-900 to-orange-800 text-orange-300 rounded-full text-xs border border-orange-500/30">useReducer</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-green-900 to-green-800 text-green-300 rounded-full text-xs border border-green-500/30">MockAPI</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Course Management System</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.courses.details">Complete CRUD application for managing courses with MockAPI integration. Features add, edit, delete courses with search functionality. Combines Redux Toolkit and useReducer for advanced state management.</p>
+          </div>
+        </div>
 
-
-    <!-- Project 9: Educational Platform API (Node.js + Express + JWT) -->
-<div class="project-card hover-lift">
-  <div class="relative overflow-hidden">
-    <img 
-      src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-      alt="Educational Platform API" 
-      class="project-image"
-    >
-    <div class="project-content">
-      <h3 class="text-xl font-bold mb-2">Educational Platform API</h3>
-      <p class="text-blue-200/80 text-sm mb-4" data-i18n="projects.api.description">Secure and scalable backend system for educational platform with JWT authentication.</p>
-      <div class="flex space-x-4">
-        <a href="https://github.com/AdityaRizky12/Tugas_Adven_Backend.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
-        </a>
-        <a href="#" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-          <i class="fas fa-file-alt mr-1"></i> <span>API Docs</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="p-6">
-    <div class="flex flex-wrap gap-2 mb-4">
-      <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-xs">Node.js</span>
-      <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs">Express.js</span>
-      <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-xs">JWT</span>
-      <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs">MySQL</span>
-      <span class="px-3 py-1 bg-red-900/50 text-red-300 rounded-full text-xs">Multer</span>
-    </div>
-    <h3 class="text-xl font-bold mb-2 text-blue-100">Educational Platform Backend</h3>
-    <p class="text-blue-200/70 text-sm" data-i18n="projects.api.details">Developed a secure and scalable backend system for an educational platform using Node.js and Express.js. The API includes authentication with JWT, email verification, course management features, media upload handling, and structured RESTful architecture.</p>
-  </div>
-</div>
-
+        <!-- Project 9: Educational Platform API -->
+        <div class="project-card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Educational Platform API" 
+              class="project-image group-hover:scale-110 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Educational Platform API</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.api.description">Secure and scalable backend system for educational platform with JWT authentication.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                <a href="https://github.com/AdityaRizky12/Tugas_Adven_Backend.git" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
+                <a href="#" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-file-alt mr-1"></i> <span>API Docs</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-green-900 to-green-800 text-green-300 rounded-full text-xs border border-green-500/30">Node.js</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">Express.js</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-yellow-900 to-yellow-800 text-yellow-300 rounded-full text-xs border border-yellow-500/30">JWT</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">MySQL</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-red-900 to-red-800 text-red-300 rounded-full text-xs border border-red-500/30">Multer</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Educational Platform Backend</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.api.details">Developed a secure and scalable backend system for an educational platform using Node.js and Express.js. The API includes authentication with JWT, email verification, course management features, media upload handling, and structured RESTful architecture.</p>
+          </div>
+        </div>
       </div>
       
       <div class="text-center mt-12">
-        <a href="https://github.com/adityarizky12" target="_blank" class="btn-outline border-blue-500 text-blue-300">
-          <i class="fab fa-github mr-2"></i><span data-i18n="projects.more">View More on GitHub</span>
+        <a href="https://github.com/adityarizky12" target="_blank" class="btn-outline border-blue-500 text-blue-300 group">
+          <i class="fab fa-github mr-2 group-hover:rotate-12 transition-transform duration-300"></i><span data-i18n="projects.more">View More on GitHub</span>
         </a>
       </div>
-
-     
-
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section-padding section-blue">
+  <section id="contact" class="min-h-screen flex items-center section-padding section-blue">
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold mb-4" data-i18n="contact.title">
@@ -1102,9 +729,9 @@
           </p>
           
           <div class="space-y-6">
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-envelope text-blue-300 text-xl"></i>
+            <div class="flex items-center group">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-envelope text-white text-xl"></i>
               </div>
               <div>
                 <p class="text-sm text-blue-300/80" data-i18n="contact.email">Email</p>
@@ -1112,9 +739,9 @@
               </div>
             </div>
             
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-blue-800/50 rounded-lg flex items-center justify-center mr-4">
-                <i class="fab fa-linkedin text-blue-300 text-xl"></i>
+            <div class="flex items-center group">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fab fa-linkedin text-white text-xl"></i>
               </div>
               <div>
                 <p class="text-sm text-blue-300/80">LinkedIn</p>
@@ -1122,9 +749,9 @@
               </div>
             </div>
             
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-blue-700/50 rounded-lg flex items-center justify-center mr-4">
-                <i class="fab fa-github text-blue-300 text-xl"></i>
+            <div class="flex items-center group">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fab fa-github text-white text-xl"></i>
               </div>
               <div>
                 <p class="text-sm text-blue-300/80">GitHub</p>
@@ -1132,9 +759,9 @@
               </div>
             </div>
             
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-blue-600/50 rounded-lg flex items-center justify-center mr-4">
-                <i class="fab fa-instagram text-blue-300 text-xl"></i>
+            <div class="flex items-center group">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fab fa-instagram text-white text-xl"></i>
               </div>
               <div>
                 <p class="text-sm text-blue-300/80">Instagram</p>
@@ -1144,7 +771,7 @@
           </div>
         </div>
         
-        <!-- Contact form - DIPERBAIKI WARNA INPUT -->
+        <!-- Contact form -->
         <div class="glass-card rounded-2xl p-8 hover-lift">
           <h3 class="text-2xl font-bold mb-6 text-blue-100" data-i18n="contact.formTitle">Send Me a Message</h3>
           
@@ -1169,8 +796,8 @@
               <textarea id="message" rows="5" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-300" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Your message..."></textarea>
             </div>
             
-            <button type="submit" class="btn-primary w-full">
-              <i class="fas fa-paper-plane mr-2"></i><span data-i18n="contact.submit">Send Message</span>
+            <button type="submit" class="btn-primary w-full group">
+              <i class="fas fa-paper-plane mr-2 group-hover:translate-x-1 transition-transform duration-300"></i><span data-i18n="contact.submit">Send Message</span>
             </button>
           </form>
         </div>
@@ -1183,32 +810,36 @@
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-8 md:mb-0">
-          <a href="#" class="text-2xl font-bold">
-            <span class="gradient-text">Aditya</span><span class="text-blue-300">Rizky</span>
+          <a href="#" class="text-2xl font-bold group">
+            <span class="gradient-text group-hover:animate-pulse">Aditya</span><span class="text-blue-300">Rizky</span>
           </a>
           <p class="text-blue-300/70 mt-2" data-i18n="footer.title">Fullstack Developer</p>
         </div>
         
         <div class="flex space-x-6 mb-8 md:mb-0">
-          <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+          <a href="https://github.com/adityarizky12" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-all duration-300 text-2xl hover:scale-110">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+          <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-all duration-300 text-2xl hover:scale-110">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-colors duration-300 text-2xl">
+          <a href="https://www.instagram.com/dittttt.11" target="_blank" class="text-blue-300/70 hover:text-blue-300 transition-all duration-300 text-2xl hover:scale-110">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
         
         <div class="text-center md:text-right">
           <p class="text-blue-300/70">© 2025 Aditya Rizky Ramadhan. <span data-i18n="footer.rights">All rights reserved</span>.</p>
-          <p class="text-blue-300/50 text-sm mt-1" data-i18n="footer.built">Built with <i class="fas fa-heart text-red-400 mx-1"></i> and modern web technologies</p>
+          <p class="text-blue-300/50 text-sm mt-1" data-i18n="footer.built">Built with <i class="fas fa-heart text-red-400 mx-1 animate-pulse"></i> and modern web technologies</p>
         </div>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="three-animation.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
