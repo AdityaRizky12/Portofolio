@@ -66,6 +66,11 @@ const translations = {
     "projects.courses.details": "Complete CRUD application for managing courses with MockAPI integration. Features add, edit, delete courses with search functionality. Combines Redux Toolkit and useReducer for advanced state management.",
     "projects.api.description": "Secure and scalable backend system for educational platform with JWT authentication.",
     "projects.api.details": "Developed a secure and scalable backend system for an educational platform using Node.js and Express.js. The API includes authentication with JWT, email verification, course management features, media upload handling, and structured RESTful architecture.",
+    "projects.streaming.description": "Complete Netflix-like streaming platform with movies, TV series, and person search.",
+    "projects.streaming.details": "Complete Netflix-style streaming platform. Features include: authentication (login/signup/logout), browse movies & TV series, watch history tracking, search for movies/TV shows/persons, personal watchlist, and user profiles. Built with MERN stack + Zustand for state management and TMDB API for content data.",
+      "projects.notes.description": "Smart note-taking application with MERN stack and Redis caching for performance.",
+    "projects.notes.details": "Advanced note-taking application built with MERN stack and Redis for caching. Features rich text editor, tags, search, sharing, real-time sync, and offline support. Redis caching ensures lightning-fast data retrieval.",
+    "projects.liveDemoSoon": "Demo Soon",
     
     // Contact
     "contact.title": "Get In Touch",
@@ -154,6 +159,11 @@ const translations = {
     "projects.courses.details": "Aplikasi CRUD lengkap untuk mengelola kursus dengan integrasi MockAPI. Fitur tambah, edit, hapus kursus dengan fungsi pencarian. Menggabungkan Redux Toolkit dan useReducer untuk manajemen state tingkat lanjut.",
     "projects.api.description": "Sistem backend yang aman dan skalabel untuk platform pendidikan dengan autentikasi JWT.",
     "projects.api.details": "Mengembangkan sistem backend yang aman dan skalabel untuk platform pendidikan menggunakan Node.js dan Express.js. API ini mencakup autentikasi dengan JWT, verifikasi email, fitur manajemen kursus, penanganan unggahan media, dan arsitektur RESTful yang terstruktur.",
+    "projects.streaming.description": "Platform streaming lengkap seperti Netflix dengan film, serial TV, dan pencarian person.",
+    "projects.streaming.details": "Platform streaming gaya Netflix lengkap. Fitur meliputi: autentikasi (login/signup/logout), jelajahi film & serial TV, riwayat tontonan, pencarian film/TV/person, daftar tontonan pribadi, dan profil pengguna. Dibangun dengan MERN stack + Zustand untuk manajemen state dan TMDB API untuk data konten.",
+    "projects.notes.description": "Aplikasi catatan pintar dengan MERN stack dan caching Redis untuk performa.",
+    "projects.notes.details": "Aplikasi catatan canggih dibangun dengan MERN stack dan Redis untuk caching. Fitur editor rich text, tag, pencarian, berbagi, sinkronisasi real-time, dan dukungan offline. Caching Redis memastikan pengambilan data yang sangat cepat.",
+    "projects.liveDemoSoon": "Demo Segera",
 
     // Contact
     "contact.title": "Hubungi Saya",
