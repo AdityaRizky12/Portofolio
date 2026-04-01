@@ -453,3 +453,84 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--accent-blue);
   display: none;
 }
+
+
+
+/* Skill Tags - Styling untuk Hard Skills */
+.skill-tag {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.6);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Soft Skill Cards - Styling untuk Soft Skills */
+.soft-skill-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.soft-skill-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+}
+
+.soft-skill-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(30, 58, 138, 0.2));
+  border-radius: 12px;
+  font-size: 1.5rem;
+  color: #60a5fa;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.soft-skill-card:hover .soft-skill-icon {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(30, 58, 138, 0.4));
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-tag {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .soft-skill-card {
+    padding: 16px;
+  }
+  
+  .soft-skill-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
