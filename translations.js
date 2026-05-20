@@ -95,6 +95,8 @@ const translations = {
       "projects.notes.description": "Smart note-taking application with MERN stack and Redis caching for performance.",
     "projects.notes.details": "Advanced note-taking application built with MERN stack and Redis for caching. Features rich text editor, tags, search, sharing, real-time sync, and offline support. Redis caching ensures lightning-fast data retrieval.",
     "projects.liveDemoSoon": "Demo Soon",
+        "projects.hotel.description": "Full-stack hotel booking web application with Next.js, Firebase, Midtrans, Cloudinary, and Resend.",
+    "projects.hotel.details": "Full-stack hotel booking web application with admin dashboard, room management CRUD, image upload with Cloudinary, room search & filter, online reservation with duplicate booking prevention, Midtrans payment gateway (pending/paid/completed/cancelled), booking receipt/invoice with PDF print/save, and email receipt with Resend. Built with Next.js, TypeScript, Firebase Auth & Firestore, Tailwind CSS, and React Datepicker.",
     
     // Contact
     "contact.title": "Get In Touch",
@@ -213,6 +215,8 @@ const translations = {
     "projects.notes.description": "Aplikasi catatan pintar dengan MERN stack dan caching Redis untuk performa.",
     "projects.notes.details": "Aplikasi catatan canggih dibangun dengan MERN stack dan Redis untuk caching. Fitur editor rich text, tag, pencarian, berbagi, sinkronisasi real-time, dan dukungan offline. Caching Redis memastikan pengambilan data yang sangat cepat.",
     "projects.liveDemoSoon": "Demo Segera",
+        "projects.hotel.description": "Aplikasi web pemesanan hotel full-stack dengan Next.js, Firebase, Midtrans, Cloudinary, dan Resend.",
+    "projects.hotel.details": "Aplikasi web pemesanan hotel full-stack dengan dashboard admin, manajemen kamar CRUD, upload gambar dengan Cloudinary, pencarian & filter kamar, reservasi online dengan pencegahan booking ganda, payment gateway Midtrans (pending/paid/completed/cancelled), invoice/reservasi dengan print/save PDF, dan email invoice dengan Resend. Dibangun dengan Next.js, TypeScript, Firebase Auth & Firestore, Tailwind CSS, dan React Datepicker.",
 
     // Contact
     "contact.title": "Hubungi Saya",

@@ -124,3 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 2000);
 });
+// Scroll to Top Button
+const scrollTop = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    scrollTop.classList.add('visible');
+  } else {
+    scrollTop.classList.remove('visible');
+  }
+});
+
+scrollTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});

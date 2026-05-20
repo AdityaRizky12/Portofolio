@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
@@ -336,6 +337,10 @@
               <i class="fas fa-chart-line text-green-400 mr-2"></i>
               <span>Next.js</span>
             </div>
+             <div class="skill-tag">
+              <i class="devicon-typescript-plain text-blue-500 mr-2"></i>
+              <span>TypeScript</span>
+            </div>
             <div class="skill-tag">
               <i class="fab fa-bootstrap text-purple-500 mr-2"></i>
               <span>Bootstrap</span>
@@ -433,20 +438,12 @@
               <span>Vercel</span>
             </div>
             <div class="skill-tag">
-              <i class="fab fa-docker text-blue-500 mr-2"></i>
-              <span>Docker</span>
-            </div>
-            <div class="skill-tag">
               <i class="fas fa-chart-line text-green-400 mr-2"></i>
               <span>Postman</span>
             </div>
             <div class="skill-tag">
               <i class="fas fa-mobile-alt text-purple-400 mr-2"></i>
               <span>Figma</span>
-            </div>
-            <div class="skill-tag">
-              <i class="fas fa-terminal text-gray-400 mr-2"></i>
-              <span>Linux/CLI</span>
             </div>
             <div class="skill-tag">
               <i class="fas fa-vial text-red-400 mr-2"></i>
@@ -456,11 +453,26 @@
               <i class="fas fa-bug text-yellow-400 mr-2"></i>
               <span>Debugging</span>
             </div>
+              <div class="skill-tag">
+              <i class="fas fa-cloud-upload-alt text-indigo-400 mr-2"></i>
+              <span>Cloudinary</span>
+            </div>
+            <div class="skill-tag">
+              <i class="fas fa-envelope text-red-400 mr-2"></i>
+              <span>Resend API</span>
+            </div>
+             <div class="skill-tag">
+              <i class="fas fa-fire text-orange-500 mr-2"></i>
+              <span>Firebase</span>
+            </div>
+            <div class="skill-tag">
+              <i class="fas fa-credit-card text-green-400 mr-2"></i>
+              <span>Midtrans</span>
+            </div>
             <div class="skill-tag">
               <i class="fas fa-rocket text-blue-400 mr-2"></i>
               <span>CI/CD</span>
             </div>
-          </div>
         </div>
       </div>
       
@@ -953,6 +965,44 @@
             <p class="text-blue-200/70 text-sm" data-i18n="projects.notes.details">Advanced note-taking application built with MERN stack and Redis for caching. Features rich text editor, tags, search, sharing, real-time sync, and offline support. Redis caching ensures lightning-fast data retrieval.</p>
           </div>
         </div>
+
+                <!-- Project 12: Hotel Booking App (Next.js + Firebase + Midtrans + Cloudinary) -->
+        <div class="project-card group">
+          <div class="relative overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Hotel Booking App" 
+              class="project-image group-hover:scale-110 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-blue via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Hotel Booking App</h3>
+              <p class="text-blue-200/80 text-sm mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-i18n="projects.hotel.description">Full-stack hotel booking web application with Next.js, Firebase, Midtrans, Cloudinary, and Resend.</p>
+              <div class="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                <a href="https://hotel-booking-app-umber.vercel.app/signin" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="projects.liveDemo">Live Demo</span>
+                </a>
+                <a href="https://github.com/AdityaRizky12/hotel-booking-app" target="_blank" class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
+                  <i class="fab fa-github mr-1"></i> <span data-i18n="projects.code">Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-blue-900 to-blue-800 text-blue-300 rounded-full text-xs border border-blue-500/30">Next.js</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">TypeScript</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-cyan-900 to-cyan-800 text-cyan-300 rounded-full text-xs border border-cyan-500/30">Tailwind CSS</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-orange-900 to-orange-800 text-orange-300 rounded-full text-xs border border-orange-500/30">Firebase Auth</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-yellow-900 to-yellow-800 text-yellow-300 rounded-full text-xs border border-yellow-500/30">Firestore</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-900 to-purple-800 text-purple-300 rounded-full text-xs border border-purple-500/30">Midtrans</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-indigo-900 to-indigo-800 text-indigo-300 rounded-full text-xs border border-indigo-500/30">Cloudinary</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-red-900 to-red-800 text-red-300 rounded-full text-xs border border-red-500/30">Resend Email</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-blue-100">Hotel Booking Platform</h3>
+            <p class="text-blue-200/70 text-sm" data-i18n="projects.hotel.details">Full-stack hotel booking web application with admin dashboard, room management CRUD, image upload with Cloudinary, room search & filter, online reservation with duplicate booking prevention, Midtrans payment gateway (pending/paid/completed/cancelled), booking receipt/invoice with PDF print/save, and email receipt with Resend. Built with Next.js, TypeScript, Firebase Auth & Firestore, Tailwind CSS, and React Datepicker.</p>
+          </div>
+        </div>
       </div>
       
       <div class="text-center mt-12">
@@ -1096,5 +1146,9 @@
   <script src="translations.js"></script>
   <script src="three-animation.js"></script>
   <script src="main.js"></script>
+    <!-- Scroll to Top Button -->
+  <div class="scroll-top" id="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 </body>
 </html>
