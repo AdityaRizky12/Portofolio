@@ -10,8 +10,10 @@ const translations = {
     "nav.cv": "Download CV",
     
     // Home
+    "home.status": "Available for Opportunities",
     "home.greeting": "Hello, I'm",
     "home.title": "Fullstack Developer",
+    "home.titleHtml": "Fullstack <span class=\"gradient-text\">Developer</span>",
     "home.description": "Fullstack Developer passionate about building modern web applications and practical digital solutions. Combining software development skills with real-world operational experience.",
     "home.viewProjects": "View Projects",
     "home.contactMe": "Contact Me",
@@ -27,6 +29,12 @@ const translations = {
     "about.skill1": "Fullstack Development",
     "about.skill2": "Responsive Design",
     "about.skill3": "Problem Solving",
+    "about.stat1Title": "Bootcamp GPA",
+    "about.stat1Desc": "Top Bootcamp Graduate",
+    "about.stat2Title": "Medikids Experience",
+    "about.stat2Desc": "Operations & Solutions",
+    "about.stat3Title": "Web Projects",
+    "about.stat3Desc": "Fullstack & Frontend",
     "about.journey": "My Journey",
     "about.journeyHtml": "My <span class=\"gradient-text\">Journey</span>",
     
@@ -43,8 +51,13 @@ const translations = {
     
     "about.journey.pkbm.title": "PKBM Murid Budiman",
     "about.journey.pkbm.period": "June – August",
-    "about.journey.pkbm.category": "Education",
-    "about.journey.pkbm.desc": "Continued my educational journey at PKBM Murid Budiman.",
+    "about.journey.pkbm.role": "School Admin & Operator",
+    "about.journey.pkbm.desc": "Managed school operational administration, student academic data, and educational information systems at PKBM Murid Budiman.",
+    "about.journey.pkbm.respTitle": "Key Responsibilities:",
+    "about.journey.pkbm.resp1": "Educational database (Dapodik) & school administration management",
+    "about.journey.pkbm.resp2": "Student enrollment data verification and academic record keeping",
+    "about.journey.pkbm.resp3": "Official correspondence archiving and operational reporting",
+    "about.journey.pkbm.resp4": "Technical support for school computer operations and information systems",
     
     "about.journey.medikids.title": "Medikids by MHDC Group",
     "about.journey.medikids.period": "August – Present",
@@ -288,6 +301,7 @@ const translations = {
     "nav.cv": "Unduh CV",
     
     // Home
+    "home.status": "Terbuka untuk Peluang Kerja",
     "home.greeting": "Halo, saya",
     "home.title": "Fullstack Developer",
     "home.description": "Fullstack Developer yang bersemangat dalam membangun aplikasi web modern dan solusi digital praktis. Memadukan keterampilan pengembangan software dengan pengalaman operasional nyata.",
@@ -305,6 +319,12 @@ const translations = {
     "about.skill1": "Pengembangan Fullstack",
     "about.skill2": "Desain Responsif",
     "about.skill3": "Pemecahan Masalah",
+    "about.stat1Title": "IPK Bootcamp",
+    "about.stat1Desc": "Lulusan Bootcamp Terbaik",
+    "about.stat2Title": "Pengalaman Medikids",
+    "about.stat2Desc": "Operasional & Solusi Digital",
+    "about.stat3Title": "Proyek Web",
+    "about.stat3Desc": "Fullstack & Frontend",
     "about.journey": "Perjalanan Saya",
     "about.journeyHtml": "Perjalanan <span class=\"gradient-text\">Saya</span>",
     
@@ -321,8 +341,13 @@ const translations = {
     
     "about.journey.pkbm.title": "PKBM Murid Budiman",
     "about.journey.pkbm.period": "Juni – Agustus",
-    "about.journey.pkbm.category": "Pendidikan",
-    "about.journey.pkbm.desc": "Melanjutkan perjalanan pendidikan saya di PKBM Murid Budiman.",
+    "about.journey.pkbm.role": "Admin & Operator Sekolah",
+    "about.journey.pkbm.desc": "Mengelola administrasi operasional sekolah, pendataan akademik siswa, serta pengelolaan sistem data pendidikan di PKBM Murid Budiman.",
+    "about.journey.pkbm.respTitle": "Tanggung Jawab Utama:",
+    "about.journey.pkbm.resp1": "Pengelolaan data pokok pendidikan (Dapodik) dan administrasi sekolah",
+    "about.journey.pkbm.resp2": "Pendataan dan verifikasi dokumen siswa serta warga belajar",
+    "about.journey.pkbm.resp3": "Pengelolaan arsip surat-menyurat dan laporan operasional sekolah",
+    "about.journey.pkbm.resp4": "Dukungan teknis operasional komputer dan sistem informasi sekolah",
     
     "about.journey.medikids.title": "Medikids by MHDC Group",
     "about.journey.medikids.period": "Agustus – Sekarang",
