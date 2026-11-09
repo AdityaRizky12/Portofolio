@@ -15,6 +15,13 @@ function setLanguage(lang) {
       element.textContent = translations[lang][key];
     }
   });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(element => {
+    const key = element.getAttribute('data-i18n-html');
+    if (translations[lang] && translations[lang][key]) {
+      element.innerHTML = translations[lang][key];
+    }
+  });
   
   document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
     const key = element.getAttribute('data-i18n-placeholder');
@@ -113,31 +120,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Three.js
   threeScene = new ThreeScene();
   
-  // Hide loading screen
-  setTimeout(() => {
+  // Hide loading screen smoothly
+  const hideLoading = () => {
     const loading = document.getElementById('loading');
-    if (loading) {
+    if (loading && loading.style.display !== 'none') {
       loading.style.opacity = '0';
       setTimeout(() => {
         loading.style.display = 'none';
-      }, 500);
+      }, 400);
     }
-  }, 2000);
-});
-// Scroll to Top Button
-const scrollTop = document.getElementById('scroll-top');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 500) {
-    scrollTop.classList.add('visible');
+  };
+  
+  if (document.readyState === 'complete') {
+    hideLoading();
   } else {
-    scrollTop.classList.remove('visible');
+    window.addEventListener('load', hideLoading);
+    setTimeout(hideLoading, 1000); // Fallback
   }
-});
+  // Scroll to Top Button
+  const scrollTop = document.getElementById('scroll-top');
+  if (scrollTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollTop.classList.add('visible');
+      } else {
+        scrollTop.classList.remove('visible');
+      }
+    });
 
-scrollTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+    scrollTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 });
